@@ -1,11 +1,10 @@
 streamlit 
 pandas 
 plotly
-json
 requests
 pandas
 numpy
 flask
-sklearn.model_selection
-imblearn.under_sampling
-sklearn.ensemble
+sklearn
+imblearn
+

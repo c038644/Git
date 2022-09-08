@@ -1,4 +1,4 @@
-msilib.schema 
+msilib 
 streamlit 
 time
 pandas 

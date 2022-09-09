@@ -25,11 +25,9 @@ def local():
   from sklearn.ensemble import RandomForestClassifier
 
   #Local Features Case for a chosen Selected Customer
-  test_df = pd.read_csv(
-    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_test_df.csv")
+  test_df = pd.read_csv("files/P7_test_df.csv")
 
-  Selected_Customer = pd.read_csv(
-    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/selection.csv")
+  Selected_Customer = pd.read_csv("files/selection.csv")
 
   print('files loaded')
 
@@ -95,15 +93,14 @@ def local():
   else:
     ten_most_important_df['Credit Granted?'] = ten_most_important_df['Credit Granted?'].fillna('No')
 
-  ten_most_important_df.to_csv(
-    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/Customer_score.csv")
+  ten_most_important_df.to_csv("files/Customer_score.csv")
 
   
-  return print('Customer Score Ready')#json.dumps(ten_most_important_df.to_json())
+  return print('Customer Score Ready')
 
 def global_data():
 
-  test_df = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_test_df.csv")
+  test_df = pd.read_csv("files/P7_test_df.csv")
 
   print('files loaded')
 
@@ -148,19 +145,17 @@ def global_data():
 
   Global_Features.columns = ['Feature', 'Importance']
 
-  
-
-  Global_Features.to_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/Global_Features.csv")
+  Global_Features.to_csv("files/Global_Features.csv")
 
   # Print out the feature and importances 
-  return print('Global Features Ready')#json.dumps(Global_Features.to_json())
+  return print('Global Features Ready')
 
 with st.spinner('Updating Report...'):
     
-    Customer_ID = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/Customer_ID.csv")
+    Customer_ID = pd.read_csv("files/Customer_ID.csv")
     Customer_ID = Customer_ID.drop(columns=['Unnamed: 0'])
     
-    all_data = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_test_df.csv")
+    all_data = pd.read_csv("files/P7_test_df.csv")
     all_data = all_data.drop(columns=['Unnamed: 0'])
 
     Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
@@ -169,13 +164,13 @@ with st.spinner('Updating Report...'):
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
-        Selected_Customer.to_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/selection.csv")
-        local() #= requests.get("http://localhost:5000/local").json()
+        Selected_Customer.to_csv("files/selection.csv")
+        local() 
        
 
     g1, g2, g3 = st.columns((1,1,1))
 
-    local_graph_df = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/Customer_score.csv")
+    local_graph_df = pd.read_csv("files/Customer_score.csv")
     
     fig = px.bar(local_graph_df, x = 'Feature', y='Importance')
     
@@ -208,9 +203,9 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    global_data() #= requests.get("http://localhost:5000/global_data").json()
+    global_data() 
 
-    global_graph_df = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/Global_Features.csv")
+    global_graph_df = pd.read_csv("files/Global_Features.csv")
 
     global_graph_df = global_graph_df.drop(columns=['Unnamed: 0'])
     
@@ -220,9 +215,9 @@ with st.spinner('Updating Report...'):
     
     g3.plotly_chart(fig, use_container_width=True)
 
-    Selected_Customer = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/selection.csv")
+    Selected_Customer = pd.read_csv("files/selection.csv")
 
-    Feature_List = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_Features.csv")
+    Feature_List = pd.read_csv("files/P7_Features.csv")
 
     Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
 

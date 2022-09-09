@@ -1,6 +1,6 @@
 Hi,
 
-This folder, Project 7 contains code for this OpenClassrooms project 7.
+This folder, Project 7 contains code for OpenClassrooms project 7.
 
 Peter_Scaife_P7 is a google colab notebook containing all the code from preprocessing to prediction
 

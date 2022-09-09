@@ -34,7 +34,7 @@ with st.spinner('Updating Report...'):
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         Selected_Customer.to_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/selection.csv")
-        local = requests.get("http://localhost:5000/local").json()
+        #local = requests.get("http://localhost:5000/local").json()
        
 
     g1, g2, g3 = st.columns((1,1,1))
@@ -73,7 +73,7 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    global_data = requests.get("http://localhost:5000/global_data").json()
+    #global_data = requests.get("http://localhost:5000/global_data").json()
 
     global_graph_df = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/Global_Features.csv")
     

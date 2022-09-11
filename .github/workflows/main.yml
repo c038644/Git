@@ -13,5 +13,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "frozen-ocean-86791" #Must be unique in Heroku
+          heroku_app_name: "shielded-hamlet-96833" #Must be unique in Heroku
           heroku_email: "peter_scaife_phd@yahoo.co.uk"

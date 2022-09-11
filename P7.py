@@ -5,7 +5,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import json
+#import json
 import requests
 
 st.set_page_config(page_title='Credit Rating Calculator',  layout='wide', page_icon=':Calculator:')

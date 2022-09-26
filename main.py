@@ -36,7 +36,7 @@ with st.spinner('Updating Report...'):
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         Selected_Customer.to_csv("files/selection.csv")
-        local = requests.get("http://localhost:5000/local").json()
+        local = requests.get("local").json()
         #st.json(local) 
        
 
@@ -75,7 +75,7 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    dashboard = requests.get("http://localhost:5000/global_data").json()
+    dashboard = requests.get("global_data").json()
 
     #global_data() 
 

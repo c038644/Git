@@ -7,20 +7,20 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
+from imblearn.ensemble import BalancedRandomForestClassifier
 
 
 @app.route('/local/')
 
 def local():
 
-  from sklearn.model_selection import train_test_split
-  from imblearn.under_sampling import RandomUnderSampler
-  from sklearn.ensemble import RandomForestClassifier
-
   #Local Features Case for a chosen Selected Customer
-  test_df = pd.read_csv("files/P7_test_df.csv")
+  test_df = pd.read_csv(
+    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_test_df.csv")
 
-  Selected_Customer = pd.read_csv("files/selection.csv")
+  Selected_Customer = pd.read_csv(
+    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/selection.csv")
 
   print('files loaded')
 
@@ -39,11 +39,7 @@ def local():
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-  undersample = RandomUnderSampler(sampling_strategy=1)
-
-  X_train, y_train = undersample.fit_resample(X_train, y_train)
-
-  rfc = RandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552)
+  rfc = BalancedRandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552, sampling_strategy='all')
   
   print('RFC')
 
@@ -86,7 +82,8 @@ def local():
   else:
     ten_most_important_df['Credit Granted?'] = ten_most_important_df['Credit Granted?'].fillna('No')
 
-  ten_most_important_df.to_csv("files/Customer_score.csv")
+  ten_most_important_df.to_csv(
+    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/Customer_score.csv")
 
   print('Customer Score Ready')
   return json.dumps(ten_most_important_df.to_json())
@@ -96,13 +93,9 @@ def local():
 
 def global_data():
 
-  test_df = pd.read_csv("files/P7_test_df.csv")
+  test_df = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_test_df.csv")
 
   print('files loaded')
-
-  from sklearn.model_selection import train_test_split
-  from imblearn.under_sampling import RandomUnderSampler
-  from sklearn.ensemble import RandomForestClassifier
 
   #Global Features Case
 
@@ -113,11 +106,7 @@ def global_data():
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-  undersample = RandomUnderSampler(sampling_strategy=1)
-
-  X_train, y_train = undersample.fit_resample(X_train, y_train)
-
-  rfc = RandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552)
+  rfc = BalancedRandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552, sampling_strategy='all')
 
   print('RFC')
 
@@ -143,7 +132,7 @@ def global_data():
 
   print('Global Features Ready')
 
-  Global_Features.to_csv("files/Global_Features.csv")
+  Global_Features.to_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/Global_Features.csv")
 
   # Print out the feature and importances 
   return json.dumps(Global_Features.to_json())

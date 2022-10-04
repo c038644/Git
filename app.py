@@ -16,11 +16,9 @@ from imblearn.ensemble import BalancedRandomForestClassifier
 def local():
 
   #Local Features Case for a chosen Selected Customer
-  test_df = pd.read_csv(
-    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_test_df.csv")
+  test_df = pd.read_csv("files/P7_test_df.csv")
 
-  Selected_Customer = pd.read_csv(
-    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/selection.csv")
+  Selected_Customer = pd.read_csv("files/selection.csv")
 
   print('files loaded')
 
@@ -82,8 +80,7 @@ def local():
   else:
     ten_most_important_df['Credit Granted?'] = ten_most_important_df['Credit Granted?'].fillna('No')
 
-  ten_most_important_df.to_csv(
-    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/Customer_score.csv")
+  ten_most_important_df.to_csv("files/Customer_score.csv")
 
   print('Customer Score Ready')
   return json.dumps(ten_most_important_df.to_json())
@@ -93,7 +90,7 @@ def local():
 
 def global_data():
 
-  test_df = pd.read_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/P7_test_df.csv")
+  test_df = pd.read_csv("files/P7_test_df.csv")
 
   print('files loaded')
 
@@ -132,7 +129,7 @@ def global_data():
 
   print('Global Features Ready')
 
-  Global_Features.to_csv("C:/Users/Farida/Documents/Data_Science/P7/Final/files/Global_Features.csv")
+  Global_Features.to_csv("files/Global_Features.csv")
 
   # Print out the feature and importances 
   return json.dumps(Global_Features.to_json())

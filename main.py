@@ -1,6 +1,3 @@
-##########################################################
-# to run: streamlit run main.py
-##########################################################
 from app import global_data, local
 import pandas as pd
 import numpy as np
@@ -10,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import json
+import urllib.request
 
 st.set_page_config(page_title='Credit Rating Calculator',  layout='wide', page_icon=':Calculator:')
 
@@ -19,6 +17,7 @@ t1, t2 = st.columns((0.07,1))
 
 t2.title("Credit Rating Calculator")
 t2.markdown("with Global and Local Customer Data")
+
 
 
 with st.spinner('Updating Report...'):
@@ -31,12 +30,16 @@ with st.spinner('Updating Report...'):
 
     Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
 
+    API_location = "http://127.0.0.1:5000/local" #+ Customer_ID
+    json_url = urlopen(API_location)
+    API_data = json.loads(json_url.read())
+    st.API_data
 
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         Selected_Customer.to_csv("files/selection.csv")
-        local = requests.get("local").json()
+        local = requests.get("http://127.0.0.1:5000/local").json()
         #st.json(local) 
        
 
@@ -75,7 +78,7 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    dashboard = requests.get("global_data").json()
+    dashboard = requests.get("http://127.0.0.1:5000/global_data").json()
 
     #global_data() 
 
@@ -110,70 +113,3 @@ with st.spinner('Updating Report...'):
     fig.update_layout(title_text="Global Feature Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
     
     g5.plotly_chart(fig, use_container_width=True)
-
-
-#*********************************************************
-
-#st.write("Select a Customer")#
-
-#def main_table(df: pd.DataFrame):
-
-#    options = GridOptionsBuilder.from_dataframe(
-#        df, enableRowGroup=True, enableValue=True, enablePivot=True
-#    )
-
-#    options.configure_side_bar()
-
-#    options.configure_selection("single")
-#    selection = AgGrid(
-#        df,
-#        enable_enterprise_modules=True,
-#        gridOptions=options.build(),
-#        theme="light",
-#        update_mode=GridUpdateMode.MODEL_CHANGED,
-#        allow_unsafe_jscode=True,
-#    )
-
-#    return selection
-
-#Selected_Columns = pd.read_csv(
-#    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/Selected_Columns.csv"
-#)
-
-#selection = main_table(df=Selected_Columns)
-
-#if selection:
-#    st.write("You selected:")
-#    st.json(selection["selected_rows"])
-#    select_rows = json.dumps(selection["selected_rows"])
-#    Customer = pd.read_json(select_rows)
-#    Customer.to_csv(
-#    "C:/Users/Farida/Documents/Data_Science/P7/Final/files/selection.csv"
-#    )
-    
-#    local = requests.get("http://localhost:5000/local").json()
-#    st.json(local)
-
-#dashboard = requests.get("http://localhost:5000/dashboard").json()
-#st.json(dashboard)
-
-
-#selection1 = result_table(df=local)
-
-#dashboard = requests.get("http://localhost:5000/global").json()
-
-# labels
-#labels = requests.get("http://localhost:5000/api/labels").json()
-#selector = st.multiselect("Select Customer:", labels)
-
-#load data
-#data = pd.read_json(
-#    requests.get("http://localhost:5000/api/data", params={"selector": selector}).json()
-#)
-
-# setup figure
-#fig = px.scatter(
-#    x=data["SK_ID_CURR"],
-#    y=data["TARGET"],
-#)
-#st.write(fig)

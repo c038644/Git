@@ -10,6 +10,9 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from imblearn.ensemble import BalancedRandomForestClassifier
 
+@app.route("/")
+def hello():
+    return "add this: /dashboard"
 
 @app.route('/local/')
 

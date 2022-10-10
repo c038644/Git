@@ -1,18 +1,16 @@
 ##########################################################
-# to run: FLASK_APP=server.py flask run
+# to run: flask run
 ##########################################################
 import json
 from flask import Flask, request, render_template
-
-app = Flask(__name__)
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from imblearn.ensemble import BalancedRandomForestClassifier
+import pickle
+import warnings
 
-@app.route("/")
-def hello():
-    return "add this: /dashboard"
+warnings.filterwarnings("ignore")
+
+app = Flask(__name__)
 
 @app.route('/local/')
 
@@ -38,15 +36,15 @@ def local():
 
   data = Selected_Customer.drop(['TARGET'], axis=1).values
 
-  X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
-
-  rfc = BalancedRandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552, sampling_strategy='all')
+  filename = 'files/final_model.sav'
+  loaded_model = pickle.load(open(filename, 'rb'))
+  #result = loaded_model.score(X, y)
   
   print('RFC')
 
-  score = rfc.fit(X_train, y_train).predict(data)
+  score = loaded_model.fit(X, y).predict(data)
 
-  Credit_given_test = np.max(rfc.predict_proba(data))
+  Credit_given_test = np.max(loaded_model.predict_proba(data))
 
   if score==0:
     credit_score=Credit_given_test
@@ -57,7 +55,7 @@ def local():
   print('Get importances')
 
   # Get numerical feature importances
-  importances = list(rfc.feature_importances_)
+  importances = list(loaded_model.feature_importances_)
 
   # List of tuples with variable and importance
   feature_importances = [(feature, round(importance, 2)) for feature, importance in zip(feature_list, importances)]
@@ -94,6 +92,7 @@ def local():
 def global_data():
 
   test_df = pd.read_csv("files/P7_test_df.csv")
+  test_df = test_df.drop(columns=['Unnamed: 0'])
 
   print('files loaded')
 
@@ -104,18 +103,15 @@ def global_data():
   X = test_df.drop(['TARGET'], axis=1).values
   y = test_df['TARGET'].values
 
-  X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
-
-  rfc = BalancedRandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552, sampling_strategy='all')
-
   print('RFC')
-
-  rfc.fit(X_train, y_train)
-
+  
+  filename = 'files/final_model.sav'
+  loaded_model = pickle.load(open(filename, 'rb'))
+  
   print('Get importances')
 
   # Get numerical feature importances
-  importances = list(rfc.feature_importances_)
+  importances = list(loaded_model.feature_importances_)
 
   # List of tuples with variable and importance
   feature_importances = [(feature, round(importance, 2)) for feature, importance in zip(feature_list, importances)]
@@ -138,4 +134,4 @@ def global_data():
   return json.dumps(Global_Features.to_json())
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

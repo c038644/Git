@@ -1,3 +1,6 @@
+##########################################################
+# to run: streamlit run main.py
+##########################################################
 from app import global_data, local
 import pandas as pd
 import numpy as np
@@ -7,7 +10,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import json
-import urllib.request
 
 st.set_page_config(page_title='Credit Rating Calculator',  layout='wide', page_icon=':Calculator:')
 
@@ -30,19 +32,14 @@ with st.spinner('Updating Report...'):
 
     Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
 
-    API_location = "http://127.0.0.1:5000/local" #+ Customer_ID
-    json_url = urlopen(API_location)
-    API_data = json.loads(json_url.read())
-    st.API_data
-
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         Selected_Customer.to_csv("files/selection.csv")
         local = requests.get("http://127.0.0.1:5000/local").json()
-        #st.json(local) 
+        #local_graph_df = pd.DataFrame.from_dict('local', orient="index")
+        #local_graph_df 
        
-
     g1, g2, g3 = st.columns((1,1,1))
 
     local_graph_df = pd.read_csv("files/Customer_score.csv")
@@ -78,9 +75,13 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    dashboard = requests.get("http://127.0.0.1:5000/global_data").json()
+    
+    #global_graph_df = requests.get("http://127.0.0.1:5000/global_data").json()
 
-    #global_data() 
+    #st.json(global_graph_df)
+
+    #global_graph_df = pd.DataFrame.from_dict('global_data', orient="index")
+    #global_graph_df
 
     global_graph_df = pd.read_csv("files/Global_Features.csv")
 

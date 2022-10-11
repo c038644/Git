@@ -3,5 +3,5 @@ pandas
 plotly
 requests
 numpy
-flask
+unicorn
 sklearn

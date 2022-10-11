@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import warnings
-import uvicorn
+import unicorn
 from fastapi import FastAPI
 
 warnings.filterwarnings("ignore")

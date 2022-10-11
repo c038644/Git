@@ -18,7 +18,7 @@ def read_root():
 
 @app.post('/local/')
 
-def local(local):
+def local():
 
   #Local Features Case for a chosen Selected Customer
   test_df = pd.read_csv("files/P7_test_df.csv")

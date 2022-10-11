@@ -1,20 +1,24 @@
 ##########################################################
-# to run: flask run
-##########################################################
 import json
-from flask import Flask, request, render_template
 import pandas as pd
 import numpy as np
 import pickle
 import warnings
+import uvicorn
+from fastapi import FastAPI
 
 warnings.filterwarnings("ignore")
 
-app = Flask(__name__)
+#app = Flask(__name__)
+app = FastAPI()
 
-@app.route('/local/')
+@app.get("/")
+def read_root():
+    return {"message": "Welcome from the API"}
 
-def local():
+@app.post('/local/')
+
+def local(local):
 
   #Local Features Case for a chosen Selected Customer
   test_df = pd.read_csv("files/P7_test_df.csv")
@@ -133,5 +137,7 @@ def global_data():
   # Print out the feature and importances 
   return json.dumps(Global_Features.to_json())
 
+#if __name__ == "__main__":
+#    app.run(debug=True)
 if __name__ == "__main__":
-    app.run(debug=True)
+    uvicorn.run("app:app", host="0.0.0.0", port=5000)

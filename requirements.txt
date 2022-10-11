@@ -5,5 +5,3 @@ requests
 numpy
 flask
 sklearn
-pickle
-warnings

@@ -77,7 +77,8 @@ with st.spinner('Updating Report...'):
     g2.plotly_chart(fig2, use_container_width=True) 
 
     
-    global_graph_df = requests.get("http://127.0.0.1:5000/global_data").json()
+    #global_graph_df = requests.get("http://127.0.0.1:5000/global_data").json()
+    global_graph_df = requests.get("https://c038644.herokuapp.com/global_data").json()
 
     #st.json(global_graph_df)
 

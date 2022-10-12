@@ -78,9 +78,9 @@ with st.spinner('Updating Report...'):
 
     
     #global_graph_df = requests.get("http://127.0.0.1:5000/global_data").json()
-    global_graph = requests.get("https://c038644.herokuapp.com/global_data").json()
+    global_graph_df = pd.Dataframe.requests.get("https://c038644.herokuapp.com/global_data").json()
 
-    global_graph.type()
+    #global_graph.type()
     #st.json(global_graph_df)
 
     #global_graph_df = pd.DataFrame.from_dict('global_data', orient="index")
@@ -94,7 +94,7 @@ with st.spinner('Updating Report...'):
     #global_graph_df = pd.DataFrame({global_graph})
     
   
-    global_graph_df = pd.read_json(global_graph, orient='index')
+    #global_graph_df = pd.read_json(global_graph, orient='index')
     
     #global_graph_df = json.loads(global_graph)
     

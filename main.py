@@ -102,7 +102,7 @@ with st.spinner('Updating Report...'):
     
     #global_graph_df = pd.DataFrame.from_dict(global_graph)
     
-    global_graph_df = DataFrame(eval(global_graph))
+    global_graph_df = pd.DataFrame(eval(global_graph))
     
     fig = px.bar(global_graph_df, x = 'Feature', y='Importance')
     

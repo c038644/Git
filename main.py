@@ -92,10 +92,7 @@ with st.spinner('Updating Report...'):
     #global_graph_df = pd.DataFrame([global_graph])
     #global_graph_df = pd.DataFrame({global_graph})
     
-    with open("files/global_graph.json", "w") as outfile:
-     outfile.write(global_graph)
-    
-    
+  
     global_graph_df = pd.read_json('global_graph')
     
     #global_graph_df = json.loads(global_graph)

@@ -94,9 +94,9 @@ with st.spinner('Updating Report...'):
     
     global_graph
     
-    global_graph_df = pd.read_json('global_graph', orient='index')
+    #global_graph_df = pd.read_json('global_graph', orient='index')
     
-    global_graph_df
+    global_graph_df = json.loads(global_graph)
     
     fig = px.bar(global_graph_df, x = 'Feature', y='Importance')
     

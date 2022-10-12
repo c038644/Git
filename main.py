@@ -98,7 +98,7 @@ with st.spinner('Updating Report...'):
     
     #global_graph_df = json.loads(global_graph)
     
-    global_graph_df = pd.DataFrame.from_dict(global_graph)
+    global_graph_df = pd.DataFrame.from_dict('global_graph')
     
     global_graph_df
     

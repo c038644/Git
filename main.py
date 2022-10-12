@@ -90,8 +90,9 @@ with st.spinner('Updating Report...'):
     #global_graph_df = global_graph_df.drop(columns=['Unnamed: 0'])
     
     #global_graph_df = pd.DataFrame([global_graph])
+    global_graph_df = pd.DataFrame({global_graph})
     
-    global_graph_df = pd.read_json('global_graph', orient='Importance')
+    #global_graph_df = pd.read_json('global_graph', orient='Importance')
     
     global_graph_df
     

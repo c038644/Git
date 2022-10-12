@@ -94,7 +94,7 @@ with st.spinner('Updating Report...'):
     
     
     
-    global_graph_df = pd.read_json("https://c038644.herokuapp.com/global_data")
+    global_graph_df = pd.json_normalize(global_graph, record_path =['Importance'])
     
     #global_graph_df = json.loads(global_graph)
     

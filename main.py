@@ -78,7 +78,7 @@ with st.spinner('Updating Report...'):
 
     
     #global_graph_df = requests.get("http://127.0.0.1:5000/global_data").json()
-    global_graph_df = pd.Dataframe.requests.get("https://c038644.herokuapp.com/global_data").json()
+    global_graph_df = pd.DataFrame(requests.get("https://c038644.herokuapp.com/global_data").json())
 
     #global_graph.type()
     #st.json(global_graph_df)

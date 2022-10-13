@@ -35,8 +35,8 @@ with st.spinner('Updating Report...'):
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
-        local(Selected_Customer)
-        #local = requests.post("http://127.0.0.1:5000/local", Selected_Customer)
+        #local(Selected_Customer)
+        local = requests.post("https://c038644.herokuapp.com/local", Selected_Customer)
         #Selected_Customer.to_csv("files/selection.csv")
         #local = requests.get("https://c038644.herokuapp.com/local").json()
         #local_graph_df = pd.DataFrame.from_dict(local)
@@ -52,8 +52,7 @@ with st.spinner('Updating Report...'):
     local_graph_df = pd.read_csv("files/Customer_score.csv")
     
     fig = px.bar(local_graph_df, x = 'Feature', y='Importance')
-    
- 
+  
     fig.update_layout(title_text="Local Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
     
     g1.plotly_chart(fig, use_container_width=True)
@@ -82,33 +81,9 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    
-    #global_graph_df = requests.get("http://127.0.0.1:5000/global_data").json()
     global_graph = requests.get("https://c038644.herokuapp.com/global_data").json()
 
-    #global_graph.type()
-    #st.json(global_graph_df)
-
-    #global_graph_df = pd.DataFrame.from_dict('global_data', orient="index")
-    #global_graph_df
-
-    #global_graph_df = pd.read_csv("files/Global_Features.csv")
-
-    #global_graph_df = global_graph_df.drop(columns=['Unnamed: 0'])
-    
-    #global_graph_df = pd.DataFrame([global_graph])
-    #global_graph_df = pd.DataFrame({global_graph})
-    
-  
-    #global_graph_df = pd.read_json(global_graph, orient='index')
-    
-    #global_graph_df = json.loads(global_graph)
-    
-    #global_graph
-    
     global_graph_df = pd.DataFrame.from_dict(global_graph)
-    
-    #global_graph_df = pd.DataFrame(eval(global_graph))
     
     fig = px.bar(global_graph_df, x = 'Feature', y='Importance')
     

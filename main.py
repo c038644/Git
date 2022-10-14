@@ -21,17 +21,17 @@ t1, t2 = st.columns((0.07,1))
 t2.title("Credit Rating Calculator")
 t2.markdown("with Global and Local Customer Data")
 
-def local(Selected_Customer):
+def local(Selected_Customer, test_df):
 
   #Local Features Case for a chosen Selected Customer
-  test_df = pd.read_csv("files/P7_test_df.csv")
+  #test_df = pd.read_csv("files/P7_test_df.csv")
 
   #Selected_Customer = pd.read_csv("files/selection.csv")
 
   print('files loaded')
 
   #Selected_Customer = Selected_Customer.drop(columns=['Unnamed: 0'])
-  test_df = test_df.drop(columns=['Unnamed: 0'])
+  #test_df = test_df.drop(columns=['Unnamed: 0'])
 
   Selected_Customer.shape
   test_df.shape
@@ -105,7 +105,7 @@ with st.spinner('Updating Report...'):
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
-        local_graph_df = local(Selected_Customer)
+        local_graph_df = local(Selected_Customer, all_data)
         local_graph_df
         #response = requests.post("https://c038644.herokuapp.com/customer").json()
         #print(response.json())
@@ -169,7 +169,7 @@ with st.spinner('Updating Report...'):
     
     g3.plotly_chart(fig, use_container_width=True)
 
-    Selected_Customer = pd.read_csv("files/selection.csv")
+    #Selected_Customer = pd.read_csv("files/selection.csv")
 
     Feature_List = pd.read_csv("files/P7_Features.csv")
 

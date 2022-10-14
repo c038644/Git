@@ -36,7 +36,7 @@ with st.spinner('Updating Report...'):
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         #local(Selected_Customer)
-        local = requests.get("https://c038644.herokuapp.com/local").json()
+        local = requests.post("https://c038644.herokuapp.com/local").json()
         local
         #Selected_Customer.to_csv("files/selection.csv")
         #local = requests.get("https://c038644.herokuapp.com/local").json()

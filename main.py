@@ -36,7 +36,7 @@ with st.spinner('Updating Report...'):
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         #local(Selected_Customer)
-        response = request.get("http://127.0.01:5000/")
+        response = requests.post("https://c038644.herokuapp.com/customer").json()
         print(response.json())
         data_table1 = pd.DataFrame(response.json())
         st.write(data_table1)

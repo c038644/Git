@@ -36,8 +36,12 @@ with st.spinner('Updating Report...'):
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         #local(Selected_Customer)
-        local = requests.post("https://c038644.herokuapp.com/customer").json()
-        local
+        response = request.get("http://127.0.01:5000/")
+        print(response.json())
+        data_table1 = pd.DataFrame(response.json())
+        st.write(data_table1)
+        #local = requests.post("https://c038644.herokuapp.com/customer").json()
+        #local
         #Selected_Customer.to_csv("files/selection.csv")
         #local = requests.get("https://c038644.herokuapp.com/local").json()
         #local_graph_df = pd.DataFrame.from_dict(local)

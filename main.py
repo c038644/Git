@@ -10,6 +10,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import json
+import pickle
 
 st.set_page_config(page_title='Credit Rating Calculator',  layout='wide', page_icon=':Calculator:')
 

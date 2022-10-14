@@ -37,6 +37,7 @@ with st.spinner('Updating Report...'):
         st.write(Selected_Customer)
         #local(Selected_Customer)
         local = requests.get("https://c038644.herokuapp.com/local")
+        local
         #Selected_Customer.to_csv("files/selection.csv")
         #local = requests.get("https://c038644.herokuapp.com/local").json()
         #local_graph_df = pd.DataFrame.from_dict(local)

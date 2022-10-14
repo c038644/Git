@@ -105,7 +105,7 @@ with st.spinner('Updating Report...'):
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
-        local(Selected_Customer)
+        local_graph_df = local(Selected_Customer)
         #response = requests.post("https://c038644.herokuapp.com/customer").json()
         #print(response.json())
         #data_table1 = pd.DataFrame(response.json())
@@ -124,7 +124,7 @@ with st.spinner('Updating Report...'):
     
     g1, g2, g3 = st.columns((1,1,1))
 
-    local_graph_df = ten_most_important_df #pd.read_csv("files/Customer_score.csv")
+    #local_graph_df = ten_most_important_df #pd.read_csv("files/Customer_score.csv")
     
     fig = px.bar(local_graph_df, x = 'Feature', y='Importance')
   

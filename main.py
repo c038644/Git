@@ -33,8 +33,8 @@ def local(Selected_Customer):
   #Selected_Customer = Selected_Customer.drop(columns=['Unnamed: 0'])
   test_df = test_df.drop(columns=['Unnamed: 0'])
 
-  print(Selected_Customer.shape)
-  print(test_df.shape)
+  Selected_Customer.shape
+  test_df.shape
 
   feature_list = list(test_df.columns)
 

@@ -38,14 +38,14 @@ with st.spinner('Updating Report...'):
         #local(Selected_Customer)
         #requests.get("https://c038644.herokuapp.com/local", Selected_Customer)
         #Selected_Customer.to_csv("files/selection.csv")
-        #local = requests.get("https://c038644.herokuapp.com/local").json()
-        #local_graph_df = pd.DataFrame.from_dict(local)
-        #local_graph_df
+        local = requests.get("https://c038644.herokuapp.com/local").json()
+        local_graph_df = pd.DataFrame.from_dict(local)
+        local_graph_df
    
    
-    local = requests.get("https://c038644.herokuapp.com/local").json()
-    local_graph_df = pd.DataFrame.from_dict(local)
-    local_graph_df
+    #local = requests.get("https://c038644.herokuapp.com/local").json()
+    #local_graph_df = pd.DataFrame.from_dict(local)
+    #local_graph_df
     
     g1, g2, g3 = st.columns((1,1,1))
 

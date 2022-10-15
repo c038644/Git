@@ -40,6 +40,8 @@ with st.spinner('Updating Report...'):
     local = requests.get("https://c038644.herokuapp.com/local").json()
     local_graph_df = pd.DataFrame.from_dict(local)
     
+    local_graph_df
+    
     g1, g2, g3 = st.columns((1,1,1))
 
     fig = px.bar(local_graph_df, x = 'Feature', y='Importance')

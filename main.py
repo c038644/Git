@@ -101,12 +101,14 @@ with st.spinner('Updating Report...'):
     all_data = all_data.drop(columns=['Unnamed: 0'])
 
     Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
-
+    #selector = st.multiselect("Select WELL:", labels)
+    
+    
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         local_graph_df = local(Selected_Customer, all_data)
-        local_graph_df
+        #local_graph_df
         #response = requests.post("https://c038644.herokuapp.com/customer").json()
         #print(response.json())
         #data_table1 = pd.DataFrame(response.json())
@@ -161,13 +163,13 @@ with st.spinner('Updating Report...'):
 
     global_graph_df = pd.DataFrame.from_dict(global_graph)
     
-    global_graph_df
+    g3.global_graph_df
     
-    fig = px.bar(global_graph_df, x = 'Feature', y='Importance')
+    #fig = px.bar(global_graph_df, x = 'Feature', y='Importance')
     
-    fig.update_layout(title_text="Global Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
+    #fig.update_layout(title_text="Global Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
     
-    g3.plotly_chart(fig, use_container_width=True)
+    #g3.plotly_chart(fig, use_container_width=True)
 
     #Selected_Customer = pd.read_csv("files/selection.csv")
 

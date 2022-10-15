@@ -100,7 +100,8 @@ with st.spinner('Updating Report...'):
     all_data = pd.read_csv("files/P7_test_df.csv")
     all_data = all_data.drop(columns=['Unnamed: 0'])
 
-    Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
+    #Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
+    Customer = st.multiselect('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
     #selector = st.multiselect("Select WELL:", labels)
     
     

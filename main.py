@@ -40,8 +40,6 @@ with st.spinner('Updating Report...'):
     local = requests.get("https://c038644.herokuapp.com/local").json()
     local_graph_df = pd.DataFrame.from_dict(local)
     
-    local_graph_df
-    
     g1, g2, g3 = st.columns((1,1,1))
 
     fig = px.bar(local_graph_df, x = 'Feature', y='Importance')
@@ -52,7 +50,7 @@ with st.spinner('Updating Report...'):
 
     fig2 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
-        value = local_graph_df.iat[0,3],
+        value = local_graph_df.iat[0,1],
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Credit Rating", 'font': {'size': 24}},
         gauge = {

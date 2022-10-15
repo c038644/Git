@@ -108,8 +108,8 @@ with st.spinner('Updating Report...'):
     #data = pd.read_json(requests.get("https://c038644.herokuapp.com/customer", params={"selector": Customer}).json())
     #local_graph_df = local(Selected_Customer, all_data)
    
-    #local = requests.get("https://c038644.herokuapp.com/local").json()
-    #local_graph_df = pd.DataFrame.from_dict(local)
+    local = requests.get("https://c038644.herokuapp.com/customer").json()
+    local_graph_df = pd.DataFrame.from_dict(local)
     
     g1, g2, g3 = st.columns((1,1,1))
 

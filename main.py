@@ -93,7 +93,7 @@ with st.spinner('Updating Report...'):
     all_data = all_data.drop(columns=['Unnamed: 0'])
 
     Customer_ID = requests.get("https://c038644.herokuapp.com/labels").json()
-    Customer_df = pd.DataFrame.from_dict(Customer)
+    Customer_df = pd.DataFrame.from_dict(Customer_ID)
     Customer = st.selectbox('Select Customer', Customer_df, help = 'Filter report to show only one customer')
     
     

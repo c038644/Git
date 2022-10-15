@@ -121,7 +121,7 @@ with st.spinner('Updating Report...'):
 
     fig2 = go.Figure(go.Indicator(
         mode = "gauge+number+delta",
-        value = local_graph_df.iat[0,2],
+        value = local_graph_df.iat[0,3],
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Credit Rating", 'font': {'size': 24}},
         gauge = {

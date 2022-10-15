@@ -11,9 +11,6 @@ import plotly.graph_objects as go
 import requests
 import json
 import pickle
-#from sklearn.model_selection import train_test_split
-#from imblearn.under_sampling import RandomUnderSampler
-#from sklearn.ensemble import RandomForestClassifier
 
 st.set_page_config(page_title='Credit Rating Calculator',  layout='wide', page_icon=':Calculator:')
 
@@ -24,70 +21,7 @@ t1, t2 = st.columns((0.07,1))
 t2.title("Credit Rating Calculator")
 t2.markdown("with Global and Local Customer Data")
 
-def local(Selected_Customer, test_df):
-
-  #Local Features Case for a chosen Selected Customer
-
-  feature_list = list(test_df.columns)
-
-  X = test_df.drop(['TARGET'], axis=1).values
-  y = test_df['TARGET'].values
-
-  data = Selected_Customer.drop(['TARGET'], axis=1).values
-
-  filename = 'files/final_model.sav'
-  loaded_model = pickle.load(open(filename, 'rb'))
-  score = loaded_model.fit(X, y).predict(data)
-    
-  #X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
-  #undersample = RandomUnderSampler(sampling_strategy=1)
-  #X_train, y_train = undersample.fit_resample(X_train, y_train)
-  #rfc = RandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552)
-  #score = rfc.fit(X_train, y_train).predict(data)
-
-  Credit_given_test = np.max(loaded_model.predict_proba(data))
-
-  if score==0:
-    credit_score=Credit_given_test
-
-  else:
-    credit_score=(1-Credit_given_test)
-
-  print('Get importances')
-
-  # Get numerical feature importances
-  importances = list(loaded_model.feature_importances_)
-
-  # List of tuples with variable and importance
-  feature_importances = [(feature, round(importance, 2)) for feature, importance in zip(feature_list, importances)]
-
-  # Sort the feature importances by most important first
-  feature_importances = sorted(feature_importances, key = lambda x: x[1], reverse = True)
-
-  #Ten most important features
-  ten_most_important = feature_importances[0:10]
-
-  ten_most_important_df = pd.DataFrame(ten_most_important)
-
-  ten_most_important_df.columns = ['Feature', 'Importance']
-
-  ten_most_important_df['Credit Score'] = credit_score
-
-  ten_most_important_df['Credit Granted?'] = None
-
-  if credit_score>=0.35:
-    ten_most_important_df['Credit Granted?'] = ten_most_important_df['Credit Granted?'].fillna('Yes')
-  elif credit_score>=0.25:
-    ten_most_important_df['Credit Granted?'] = ten_most_important_df['Credit Granted?'].fillna('Risky')
-  else:
-    ten_most_important_df['Credit Granted?'] = ten_most_important_df['Credit Granted?'].fillna('No')
-
-  return(ten_most_important_df)
-
 with st.spinner('Updating Report...'):
-    
-    #Customer_ID = pd.read_csv("files/Customer_ID.csv")
-    #Customer_ID = Customer_ID.drop(columns=['Unnamed: 0'])
     
     all_data = pd.read_csv("files/P7_test_df.csv")
     all_data = all_data.drop(columns=['Unnamed: 0'])
@@ -102,11 +36,6 @@ with st.spinner('Updating Report...'):
     Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == selector]
     st.write(Selected_Customer)
     data = requests.get("https://c038644.herokuapp.com/customer", params={"selector": selector}).json()
-   
-    #local_graph_df = local(Selected_Customer, all_data)
-     
-    #data = pd.read_json(requests.get("https://c038644.herokuapp.com/customer", params={"selector": Customer}).json())
-    #local_graph_df = local(Selected_Customer, all_data)
    
     local = requests.get("https://c038644.herokuapp.com/local").json()
     local_graph_df = pd.DataFrame.from_dict(local)

@@ -103,7 +103,8 @@ with st.spinner('Updating Report...'):
     #if Customer:
     #Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
     #st.write(Selected_Customer)
-    data = pd.read_json(requests.get("https://c038644.herokuapp.com/customer", params={"selector": Customer}).json())
+    data = requests.get("https://c038644.herokuapp.com/labels", params={"selector": Customer}).json()
+    #data = pd.read_json(requests.get("https://c038644.herokuapp.com/customer", params={"selector": Customer}).json())
     data
         #local_graph_df = local(Selected_Customer, all_data)
    

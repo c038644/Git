@@ -93,17 +93,17 @@ with st.spinner('Updating Report...'):
     all_data = all_data.drop(columns=['Unnamed: 0'])
 
     Customer_ID = requests.get("https://c038644.herokuapp.com/labels").json()
-    #Customer_ID
+
     Customer_df = pd.DataFrame.from_dict(Customer_ID)
-    #Customer_df
-    Customer = st.selectbox('Select Customer', Customer_df, help = 'Filter report to show only one customer')
-    Customer
+
+    selector = st.selectbox('Select Customer', Customer_df, help = 'Filter report to show only one customer')
+    
     
     
     #if Customer:
     #Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
     #st.write(Selected_Customer)
-    data = requests.get("https://c038644.herokuapp.com/customer", params={"selector": Customer}).json()
+    data = requests.get("https://c038644.herokuapp.com/customer", params={"selector": selector}).json()
    
     #local_graph_df = local(Selected_Customer, all_data)
      

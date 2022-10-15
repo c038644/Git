@@ -99,8 +99,8 @@ with st.spinner('Updating Report...'):
     selector = st.selectbox('Select Customer', Customer_df, help = 'Filter report to show only one customer')
     
     #if Customer:
-    #Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
-    #st.write(Selected_Customer)
+    Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == selector]
+    st.write(Selected_Customer)
     data = requests.get("https://c038644.herokuapp.com/customer", params={"selector": selector}).json()
    
     #local_graph_df = local(Selected_Customer, all_data)

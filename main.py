@@ -103,13 +103,14 @@ with st.spinner('Updating Report...'):
     #Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
     Customer = st.multiselect('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
     Customer
+    Customer.str.split(n=-1, expand=True)
     #selector = st.multiselect("Select WELL:", labels)
     
     
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
-        local_graph_df = local(Selected_Customer, all_data)
+        #local_graph_df = local(Selected_Customer, all_data)
         #local_graph_df
         #response = requests.post("https://c038644.herokuapp.com/customer").json()
         #print(response.json())
@@ -161,7 +162,7 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    global_graph = requests.get("https://c038644.herokuapp.com/global_data").json()
+    #global_graph = requests.get("https://c038644.herokuapp.com/global_data").json()
 
     global_graph_df = pd.DataFrame.from_dict(global_graph)
     

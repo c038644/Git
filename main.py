@@ -11,6 +11,9 @@ import plotly.graph_objects as go
 import requests
 import json
 import pickle
+#from sklearn.model_selection import train_test_split
+#from imblearn.under_sampling import RandomUnderSampler
+#from sklearn.ensemble import RandomForestClassifier
 
 st.set_page_config(page_title='Credit Rating Calculator',  layout='wide', page_icon=':Calculator:')
 
@@ -24,17 +27,6 @@ t2.markdown("with Global and Local Customer Data")
 def local(Selected_Customer, test_df):
 
   #Local Features Case for a chosen Selected Customer
-  #test_df = pd.read_csv("files/P7_test_df.csv")
-
-  #Selected_Customer = pd.read_csv("files/selection.csv")
-
-  print('files loaded')
-
-  #Selected_Customer = Selected_Customer.drop(columns=['Unnamed: 0'])
-  #test_df = test_df.drop(columns=['Unnamed: 0'])
-
-  #Selected_Customer.shape
-  #test_df.shape
 
   feature_list = list(test_df.columns)
 
@@ -45,10 +37,13 @@ def local(Selected_Customer, test_df):
 
   filename = 'files/final_model.sav'
   loaded_model = pickle.load(open(filename, 'rb'))
-  
-  print('RFC')
-
   score = loaded_model.fit(X, y).predict(data)
+    
+  #X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+  #undersample = RandomUnderSampler(sampling_strategy=1)
+  #X_train, y_train = undersample.fit_resample(X_train, y_train)
+  #rfc = RandomForestClassifier(max_depth=13, min_samples_leaf=2, min_samples_split=8, n_estimators=552)
+  #score = rfc.fit(X_train, y_train).predict(data)
 
   Credit_given_test = np.max(loaded_model.predict_proba(data))
 
@@ -87,9 +82,6 @@ def local(Selected_Customer, test_df):
   else:
     ten_most_important_df['Credit Granted?'] = ten_most_important_df['Credit Granted?'].fillna('No')
 
-  #ten_most_important_df.to_csv("files/Customer_score.csv")
-
-  
   return(ten_most_important_df)
 
 with st.spinner('Updating Report...'):
@@ -127,7 +119,6 @@ with st.spinner('Updating Report...'):
    
     #local = requests.get("https://c038644.herokuapp.com/local").json()
     #local_graph_df = pd.DataFrame.from_dict(local)
-    #local_graph_df
     
     g1, g2, g3 = st.columns((1,1,1))
 
@@ -163,7 +154,7 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    #global_graph = requests.get("https://c038644.herokuapp.com/global_data").json()
+    global_graph = requests.get("https://c038644.herokuapp.com/global_data").json()
 
     global_graph_df = pd.DataFrame.from_dict(global_graph)
     

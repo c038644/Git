@@ -102,6 +102,7 @@ with st.spinner('Updating Report...'):
 
     #Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
     Customer = st.multiselect('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
+    Customer
     #selector = st.multiselect("Select WELL:", labels)
     
     

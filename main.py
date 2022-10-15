@@ -96,13 +96,7 @@ with st.spinner('Updating Report...'):
 
     Customer_df = pd.DataFrame.from_dict(Customer_ID)
     
-    Customer_df = str(Customer_df)
-    
-    print(type(Customer_df))
-
     selector = st.selectbox('Select Customer', Customer_df, help = 'Filter report to show only one customer')
-    
-    
     
     #if Customer:
     #Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]

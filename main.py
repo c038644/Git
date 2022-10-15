@@ -86,21 +86,22 @@ def local(Selected_Customer, test_df):
 
 with st.spinner('Updating Report...'):
     
-    Customer_ID = pd.read_csv("files/Customer_ID.csv")
-    Customer_ID = Customer_ID.drop(columns=['Unnamed: 0'])
+    #Customer_ID = pd.read_csv("files/Customer_ID.csv")
+    #Customer_ID = Customer_ID.drop(columns=['Unnamed: 0'])
     
     all_data = pd.read_csv("files/P7_test_df.csv")
     all_data = all_data.drop(columns=['Unnamed: 0'])
 
+    Customer_ID = requests.get("https://c038644.herokuapp.com/labels").json()
     Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
     
-    if Customer:
-        Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
-        st.write(Selected_Customer)
-        data = pd.read_json(
-        requests.get("https://c038644.herokuapp.com/customer", params={"selector": Customer}).json()
-        )
-        data
+    #if Customer:
+    #Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
+    #st.write(Selected_Customer)
+    data = pd.read_json(
+    requests.get("https://c038644.herokuapp.com/customer", params={"selector": Customer}).json()
+    )
+    data
         #local_graph_df = local(Selected_Customer, all_data)
    
     #local = requests.get("https://c038644.herokuapp.com/local").json()

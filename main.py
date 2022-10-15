@@ -93,37 +93,17 @@ with st.spinner('Updating Report...'):
     all_data = all_data.drop(columns=['Unnamed: 0'])
 
     Customer = st.selectbox('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
-    #Customer = st.multiselect('Select Customer', Customer_ID, help = 'Filter report to show only one customer')
-    #Customer = str(Customer)
-    #Customer = [sub[2 : ] for sub in Customer]
-    #Customer = Customer[2:]
-    #selector = st.multiselect("Select WELL:", labels)
-    
     
     if Customer:
         Selected_Customer = all_data.loc[all_data['SK_ID_CURR'] == Customer]
         st.write(Selected_Customer)
         local_graph_df = local(Selected_Customer, all_data)
-        #local_graph_df
-        #response = requests.post("https://c038644.herokuapp.com/customer").json()
-        #print(response.json())
-        #data_table1 = pd.DataFrame(response.json())
-        #st.write(data_table1)
-        #local = requests.post("https://c038644.herokuapp.com/customer").json()
-        #local
-        #Selected_Customer.to_csv("files/selection.csv")
-        #local = requests.get("https://c038644.herokuapp.com/local").json()
-        #local_graph_df = pd.DataFrame.from_dict(local)
-        #local_graph_df
-   
    
     #local = requests.get("https://c038644.herokuapp.com/local").json()
     #local_graph_df = pd.DataFrame.from_dict(local)
     
     g1, g2, g3 = st.columns((1,1,1))
 
-    #local_graph_df = ten_most_important_df #pd.read_csv("files/Customer_score.csv")
-    
     fig = px.bar(local_graph_df, x = 'Feature', y='Importance')
   
     fig.update_layout(title_text="Local Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
@@ -158,15 +138,11 @@ with st.spinner('Updating Report...'):
 
     global_graph_df = pd.DataFrame.from_dict(global_graph)
     
-    #global_graph_df
-    
     fig = px.bar(global_graph_df, x = 'Feature', y='Importance')
     
     fig.update_layout(title_text="Global Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
     
     g3.plotly_chart(fig, use_container_width=True)
-
-    #Selected_Customer = pd.read_csv("files/selection.csv")
 
     Feature_List = pd.read_csv("files/P7_Features.csv")
 

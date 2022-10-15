@@ -163,7 +163,7 @@ with st.spinner('Updating Report...'):
 
     global_graph_df = pd.DataFrame.from_dict(global_graph)
     
-    g3.global_graph_df
+    global_graph_df
     
     #fig = px.bar(global_graph_df, x = 'Feature', y='Importance')
     

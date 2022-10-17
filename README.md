@@ -8,7 +8,7 @@ P7_notebook is a google colab notebook containing all the code from preprocessin
 
 main.py uses streamlit for the front end of the credit rating dashboard
 
-app.py uses FastAPI for the back end
+app.py uses flask for the back end
 
 The working dashboard is available on streamlit share: https://c038644-git-main-4wr9um.streamlitapp.com/
 

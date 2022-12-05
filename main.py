@@ -154,7 +154,7 @@ with st.spinner('Updating Report...'):
         #local = requests.get("local").json()
         #st.json(local) 
     
-    local()
+    l = local()
 
     g1, g2, g3 = st.columns((1,1,1))
 

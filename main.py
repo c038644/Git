@@ -153,7 +153,8 @@ with st.spinner('Updating Report...'):
         Selected_Customer.to_csv("files/selection.csv")
         #local = requests.get("local").json()
         #st.json(local) 
-       
+    
+    local()
 
     g1, g2, g3 = st.columns((1,1,1))
 
@@ -192,7 +193,7 @@ with st.spinner('Updating Report...'):
 
     #dashboard = requests.get("global_data").json()
 
-    global_data() 
+    #global_data() 
 
     global_graph_df = pd.read_csv("files/Global_Features.csv")
 

@@ -75,7 +75,7 @@ with st.spinner('Updating Report...'):
 
     g2.plotly_chart(fig2, use_container_width=True) 
 
-    dashboard = requests.get("global_data").json()
+    #dashboard = requests.get("global_data").json()
 
     #global_data() 
 

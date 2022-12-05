@@ -1,6 +1,9 @@
-Last edit 11/10/2022
+Update 5/11/2022:
+
+Heroku is now paid only, so there is now no API. The dashboard still works but everything runs via streamlit share.
 
 Hi,
+
 
 The folder Project 7 contains code for this OpenClassrooms project 7.
 

@@ -1,15 +1,15 @@
 Feature
-95-NO2(ug/m3)-slotA   
-95-O3(ug/m3)-slotA                    
-95-NO(ug/m3)-slotA                     
-95-PM1(ug/m3)-slotA                     
-95-PM2.5(ug/m3)-slotA                 
-95-PM10(ug/m3)-slotA                   
-95-NO2(ug/m3)-slotB                      
-95-O3(ug/m3)-slotB                  
-95-NO(ug/m3)-slotB                   
-95-PM1(ug/m3)-slotB                   
-95-PM2.5(ug/m3)-slotB                      
+95-NO2(ug/m3)-slotA
+95-O3(ug/m3)-slotA
+95-NO(ug/m3)-slotA
+95-PM1(ug/m3)-slotA
+95-PM2.5(ug/m3)-slotA
+95-PM10(ug/m3)-slotA
+95-NO2(ug/m3)-slotB
+95-O3(ug/m3)-slotB
+95-NO(ug/m3)-slotB
+95-PM1(ug/m3)-slotB
+95-PM2.5(ug/m3)-slotB
 95-PM10(ug/m3)-slotB
 Nitric oxide
 Nitrogen dioxide

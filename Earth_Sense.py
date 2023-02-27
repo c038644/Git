@@ -33,10 +33,10 @@ with st.spinner('Updating Report...'):
 
     g1, g2= st.columns((10, 1))
     
-    df = df.set_index('Nitrogen dioxide')
+    df = df.set_index('95-NO2(ug/m3)-slotA')
     
     #fig = px.line(df, x = 'Time', y=Feature)
-    fig = px.line(df, x = 'Time', y=['95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'])
+    fig = px.line(df, x = 'Time', y=['95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB'])#, 'Nitrogen dioxide'])
      
     g1.plotly_chart(fig, use_container_width=True)
  

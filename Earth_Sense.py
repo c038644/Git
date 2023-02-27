@@ -24,9 +24,12 @@ with st.spinner('Updating Report...'):
 
     Day = st.selectbox('Select Customer', Date, help = 'Filter report to show only one customer')
     Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]
+    Selected_Day_gov = AirQualityDataHourly.loc[AirQualityDataHourly['Day'] == Day]
+    
+    df = pd.merge(Selected_Day, Selected_Day_gov, how="left", on="Time")
     
     Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
-    Selected_Feature = Selected_Day.loc[Selected_Day[Feature] == Feature].any()
+    Selected_Feature = df.loc[df[Feature] == Feature].any()
 
     g1, g2= st.columns((10, 1))
     

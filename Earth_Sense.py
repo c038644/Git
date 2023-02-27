@@ -41,6 +41,10 @@ with st.spinner('Updating Report...'):
     # all_data = all_data.drop(columns=['Unnamed: 0'])
 
     Day = st.selectbox('Select Customer', Date, help = 'Filter report to show only one customer')
+    Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]
+    
+    Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
+    Selected_Feature = Week_data_95.loc[Week_data_95[Feature] == Feature].any()
 
 
     #if Day:
@@ -54,7 +58,7 @@ with st.spinner('Updating Report...'):
 
     #df = pd.merge(Week_data_95, Wednesday_gov, how="left", on="Time")
     
-    graph_df = Week_data_95[['Time', '95-NO2(ug/m3)-slotA']]
+    #graph_df = Week_data_95[['Time', '95-NO2(ug/m3)-slotA']]
 
     g1, g2= st.columns((10, 1))
 
@@ -63,7 +67,7 @@ with st.spinner('Updating Report...'):
     #fig = px.line(graph_df, x = 'Time', y='Ozone')
     #df = px.data.gapminder().query("Day==Date")
     
-    fig = px.line(graph_df, x = 'Time', y='95-NO2(ug/m3)-slotA')
+    fig = px.line(Selected_Day, x = 'Time', y=Feature)
     #fig.update_layout(title_text="Local Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
     
     g1.plotly_chart(fig, use_container_width=True)

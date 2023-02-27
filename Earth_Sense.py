@@ -34,7 +34,7 @@ with st.spinner('Updating Report...'):
     
     Date = pd.read_csv("Day.csv")
     Week_data_95 = pd.read_csv("Week_data_95.csv")
-    #Customer_ID = Customer_ID.drop(columns=['Unnamed: 0'])
+    Feature_List = pd.read_csv("Feature_List.csv")
     
     Wednesday_gov = pd.read_csv("Wednesday_gov.csv")
     #

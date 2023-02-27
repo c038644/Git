@@ -45,8 +45,8 @@ with st.spinner('Updating Report...'):
     Selected_Day
     
     Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
-    Feature
-    #Selected_Feature = Selected_Day.loc[Selected_Day['Feature'] == Feature]#.any()
+    Selected_Feature = Selected_Day.loc[Selected_Day['Feature'] == Feature]#.any()
+    Selected_Feature
 
 
     #if Day:

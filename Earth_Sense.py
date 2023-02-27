@@ -40,11 +40,12 @@ with st.spinner('Updating Report...'):
     #
     # all_data = all_data.drop(columns=['Unnamed: 0'])
 
-    Day = st.selectbox('Select Customer', Date, help = 'Filter report to show only one customer')
-    Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]
+    #Day = st.selectbox('Select Customer', Date, help = 'Filter report to show only one customer')
+    #Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]
     
     Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
-    Selected_Feature = Selected_Day.loc[Selected_Day[Feature] == Feature].any()
+    #Selected_Feature = Selected_Day.loc[Selected_Day[Feature] == Feature].any()
+    Selected_Feature = Week_data_95.loc[Week_data_95[Feature] == Feature].any()
 
     #if Day:
     #    Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]

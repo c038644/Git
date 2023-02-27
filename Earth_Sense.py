@@ -61,7 +61,7 @@ with st.spinner('Updating Report...'):
     fig = px.line(df, x = 'Time', y='Ozone')
     
  
-    fig.update_layout(title_text="Local Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
+    #fig.update_layout(title_text="Local Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
     
-    g1.plotly_chart(fig, use_container_width=True)
+    #g1.plotly_chart(fig, use_container_width=True)
 

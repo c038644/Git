@@ -33,7 +33,7 @@ with st.spinner('Updating Report...'):
 
     g1, g2= st.columns((10, 1))
     
-    fig = px.line(Selected_Day, x = 'Time', y=Feature)
+    fig = px.line(df, x = 'Time', y=Feature)
      
     g1.plotly_chart(fig, use_container_width=True)
  

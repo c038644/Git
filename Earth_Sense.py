@@ -33,7 +33,7 @@ with st.spinner('Updating Report...'):
 
     g1, g2= st.columns((10, 1))
     
-    df.info()
+    df.sort_values((by=['Time']))
     
      
     #fig = px.line(df, x = 'Time', y=Feature)

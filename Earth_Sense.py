@@ -60,10 +60,11 @@ with st.spinner('Updating Report...'):
 
     #local_graph_df = pd.read_csv("files/Customer_score.csv")
     
-    fig = px.line(graph_df, x = 'Time', y='Ozone')
+    #fig = px.line(graph_df, x = 'Time', y='Ozone')
+    df = px.data.gapminder().query("Day==Date")
     
- 
-    fig.update_layout(title_text="Local Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
+    fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
+    #fig.update_layout(title_text="Local Features Graph",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
     
     g1.plotly_chart(fig, use_container_width=True)
 

@@ -54,7 +54,7 @@ with st.spinner('Updating Report...'):
 
     #df = pd.merge(Week_data_95, Wednesday_gov, how="left", on="Time")
     
-    graph_df = df[['Time', '95-NO2(ug/m3)-slotA']]
+    graph_df = Week_data_95[['Time', '95-NO2(ug/m3)-slotA']]
 
     g1, g2= st.columns((10, 1))
 

@@ -32,7 +32,7 @@ t2.markdown("with Global and Local Customer Data")
 
 with st.spinner('Updating Report...'):
     
-    Date = pd.read_csv("day.csv")
+    Date = pd.read_csv("Day.csv")
     Week_data_95 = pd.read_csv("Week_data_95.csv")
     #Customer_ID = Customer_ID.drop(columns=['Unnamed: 0'])
     

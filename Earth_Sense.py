@@ -35,7 +35,7 @@ with st.spinner('Updating Report...'):
     
      
     #fig = px.line(df, x = 'Time', y=Feature)
-    fig = px.line(df, x = 'Time', y=['95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB'])#, 'Nitrogen dioxide'])
+    fig = px.line(df, x = 'Time', y=['95-NO2(ug/m3)-slotA', 'Nitrogen dioxide'])#, 'Nitrogen dioxide'])
      
     g1.plotly_chart(fig, use_container_width=True)
  

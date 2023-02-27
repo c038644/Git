@@ -56,7 +56,7 @@ with st.spinner('Updating Report...'):
     
     graph_df = df[['Time', 'Ozone']]
 
-    g1, g2= st.columns((2,1))
+    g1= st.columns((1))
 
     #local_graph_df = pd.read_csv("files/Customer_score.csv")
     

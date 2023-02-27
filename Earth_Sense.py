@@ -4,14 +4,14 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 
-st.set_page_config(page_title='Credit Rating Calculator',  layout='wide', page_icon=':Calculator:')
+st.set_page_config(page_title='Air Quality Analysis',  layout='wide', page_icon=':Calculator:')
 
 #this is the header
  
 t1, t2 = st.columns((0.07,1)) 
 
-t2.title("Credit Rating Calculator")
-t2.markdown("with Global and Local Customer Data")
+t2.title("Air Quality Analysis")
+t2.markdown("with Zephyr and AURN Data")
 
 
 with st.spinner('Updating Report...'):

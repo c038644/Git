@@ -33,9 +33,7 @@ with st.spinner('Updating Report...'):
 
     g1, g2= st.columns((10, 1))
     
-    df.sort_values((by=[Time]))
-    
-     
+      
     #fig = px.line(df, x = 'Time', y=Feature)
     fig = px.line(df, x = 'Time', y=['95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'])#, 'Nitrogen dioxide'])
      

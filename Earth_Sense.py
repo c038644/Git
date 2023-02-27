@@ -20,7 +20,7 @@ with st.spinner('Updating Report...'):
     Week_data_95 = pd.read_csv("Week_data_95.csv")
     Feature_List = pd.read_csv("Feature_List.csv")
     
-    AirQualityDataHourly = pd.read_csv("AirQualityDataHourly.csv.csv")
+    AirQualityDataHourly = pd.read_csv("AirQualityDataHourly.csv")
 
     Day = st.selectbox('Select Customer', Date, help = 'Filter report to show only one customer')
     Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]

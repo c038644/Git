@@ -52,7 +52,7 @@ with st.spinner('Updating Report...'):
     
     #graph(Day)
 
-    df = pd.merge(Day, Wednesday_gov, how="left", on="Time")
+    df = pd.merge(Week_data_95, Wednesday_gov, how="left", on="Time")
 
     g1 = st.columns((1))
 

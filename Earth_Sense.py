@@ -52,7 +52,7 @@ with st.spinner('Updating Report...'):
      F3 = 'PM2.5 particulate matter (Hourly measured)'
     elif (Feature == 'PM10 particulate matter'):
      F1 = '95-PM10(ug/m3)-slotA'
-     F2 = '95-PM10(ug/m3)-slotA'
+     F2 = '95-PM10(ug/m3)-slotB'
      F3 = 'PM10 particulate matter (Hourly measured)'  
 
  

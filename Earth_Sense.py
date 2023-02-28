@@ -80,7 +80,7 @@ with st.spinner('Updating Report...'):
     with g6:
      st.dataframe(data=CombinedAirQualityData['Difference'], use_container_width=True)  
     
-    CombinedAirQualityData['Percentage'] = (CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2 / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])
+    CombinedAirQualityData['Percentage'] = 100*(CombinedAirQualityData['Difference']) / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])
 
     with g7:
      st.dataframe(data=CombinedAirQualityData['Percentage'], use_container_width=True)

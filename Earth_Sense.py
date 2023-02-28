@@ -30,6 +30,7 @@ with st.spinner('Updating Report...'):
     
     Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
     #Selected_Feature = df.loc[df[Feature] == Feature].any()
+    Feature
 
     g1, g2= st.columns((10, 1))
     
@@ -39,7 +40,7 @@ with st.spinner('Updating Report...'):
     
     #Selected_Feature = Feature
     
-    if (Feature == (Feature_List.iloc[1]).any()):
+    if (Feature == '95-NO2(ug/m3)-slotA'):
      #F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
      print("hello")
  

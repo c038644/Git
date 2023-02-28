@@ -62,7 +62,9 @@ with st.spinner('Updating Report...'):
 
     g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))
     
-    st.dataframe(data=CombinedAirQualityData[F1], width=200, use_container_width=True)
+    with g3:
+     st.dataframe(data=CombinedAirQualityData[F1], use_container_width=True)
+     
     CombinedAirQualityData[F2]
     CombinedAirQualityData[F3]
     

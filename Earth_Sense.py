@@ -64,12 +64,10 @@ with st.spinner('Updating Report...'):
     
     #df['Difference'] = ((df[F3] - ((df[F2] + df[F1])/2))/(df[F3] + df[F2] + df[F1])) * 100
     df['Difference'] = (df[F3] / (df[F2] + df[F1])/2) * 100
-    df[F3]
-    df[F2]
-    df[F1]
+    df['Difference']
     
-    fig2 = px.line(df, x = 'Time', y='Difference')
+    #fig2 = px.line(df, x = 'Time', y='Difference')
      
-    g3.plotly_chart(fig2, use_container_width=True)
+    #g3.plotly_chart(fig2, use_container_width=True)
  
 

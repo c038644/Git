@@ -34,7 +34,9 @@ with st.spinner('Updating Report...'):
     g1, g2= st.columns((10, 1))
     
     
-    Feature == Nitrogen Dioxide
+    if (Feature == 'Nitrogen Dioxide'):
+     print("hello")
+     
     F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
  
         

@@ -37,6 +37,7 @@ with st.spinner('Updating Report...'):
     
     if (Feature == 'Nitrogen Dioxide'):
      F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
+     F1
     
       
     #fig = px.line(df, x = 'Time', y=Feature)

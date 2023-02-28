@@ -64,7 +64,7 @@ with st.spinner('Updating Report...'):
     
     #df['Difference'] = ((df[F3] - ((df[F2] + df[F1])/2))/(df[F3] + df[F2] + df[F1])) * 100
     CombinedAirQualityData['Difference'] = (sum(CombinedAirQualityData[F3] - (CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2))
-    st.write = CombinedAirQualityData['Difference']
+    CombinedAirQualityData['Difference']
     CombinedAirQualityData['Percentage'] = (CombinedAirQualityData['Difference'] / sum(CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])*100
     CombinedAirQualityData['Percentage']
     

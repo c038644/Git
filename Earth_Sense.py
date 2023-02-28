@@ -67,6 +67,6 @@ with st.spinner('Updating Report...'):
     
     fig2 = px.line(df, x = 'Time', y='Difference')
      
-    g1.plotly_chart(fig2, use_container_width=True)
+    g3.plotly_chart(fig2, use_container_width=True)
  
 

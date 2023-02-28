@@ -31,9 +31,6 @@ with st.spinner('Updating Report...'):
     Feature = st.selectbox('Select Pollutant', Feature_List, help = 'Filter report to show only one pollutant')
     #Selected_Feature = df.loc[df[Feature] == Feature].any()
 
-
-
-    
     if (Feature == 'Nitric oxide'):
      F1 = '95-NO(ug/m3)-slotA'
      F2 = '95-NO(ug/m3)-slotB'
@@ -63,10 +60,12 @@ with st.spinner('Updating Report...'):
     g1, g2= st.columns((100, 1))
    
     g1.plotly_chart(fig, use_container_width=True)
+    
+    st.write("Weekly data for the average of slot A and slot B with AURN data") 
 
     g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))
     
-    st.write("Weekly data for the average of slot A and slot B with AURN data") 
+
     
     with g3:
      st.dataframe(data=CombinedAirQualityData[F1], use_container_width=True)

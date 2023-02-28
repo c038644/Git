@@ -81,9 +81,9 @@ with st.spinner('Updating Report...'):
      st.dataframe(data=CombinedAirQualityData['Percentage'], use_container_width=True)
     
     with g8:
-    st.write(sum(CombinedAirQualityData['Difference']))
-    st.write(sum(CombinedAirQualityData['Difference'])/168)
-    st.write((sum(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2 / sum(CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1]))*100)
+     st.write(sum(CombinedAirQualityData['Difference']))
+     st.write(sum(CombinedAirQualityData['Difference'])/168)
+     st.write((sum(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2 / sum(CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1]))*100)
     
     
     #fig2 = px.line(CombinedAirQualityData, x = 'Time', y='Difference')

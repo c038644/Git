@@ -37,10 +37,11 @@ with st.spinner('Updating Report...'):
     #if (Feature == 'Nitrogen Dioxide'):
     # print("hello")
     
-    Selected_Feature = Feature
+    #Selected_Feature = Feature
     
-    if (Selected_Feature == 'Nitrogen Dioxide'):
-     F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
+    if (Feature == Feature_List[0]):
+     #F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
+     print("hello")
  
         
     #fig = px.line(df, x = 'Time', y=Feature)

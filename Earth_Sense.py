@@ -55,12 +55,15 @@ with st.spinner('Updating Report...'):
      F2 = '95-PM10(ug/m3)-slotB'
      F3 = 'PM10 particulate matter (Hourly measured)'  
 
+    st.write("Hourly data for slot A and slot B with AURN data")
  
     fig = px.line(df, x = 'Time', y=[F1, F2, F3])
      
     g1.plotly_chart(fig, use_container_width=True)
 
     g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))
+    
+    st.write("Weekly data for the average of slot A and slot B with AURN data") 
     
     with g3:
      st.dataframe(data=CombinedAirQualityData[F1], use_container_width=True)
@@ -81,8 +84,11 @@ with st.spinner('Updating Report...'):
      st.dataframe(data=CombinedAirQualityData['Percentage'], use_container_width=True)
     
     with g8:
+     st.write("Total difference") 
      st.write(sum(CombinedAirQualityData['Difference']))
+     st.write("Average difference") 
      st.write(sum(CombinedAirQualityData['Difference'])/168)
+     st.write("Percentage difference")
      st.write((sum(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2 / sum(CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1]))*100)
     
     

@@ -33,13 +33,11 @@ with st.spinner('Updating Report...'):
 
     g1, g2= st.columns((10, 1))
     
-    #F1, F2, F3 = ''
     
-    if (Feature == 'Nitrogen Dioxide'):
-     F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
-     F1
-    
-      
+    Feature == 'Nitrogen Dioxide':
+    F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
+ 
+        
     #fig = px.line(df, x = 'Time', y=Feature)
     fig = px.line(df, x = 'Time', y=[F1, F2, F3])
      

@@ -39,8 +39,8 @@ with st.spinner('Updating Report...'):
     
     #Selected_Feature = Feature
     
-    #if ("'" + Feature + "'" == '95-NO2(ug/m3)-slotA'):
-     #F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
+    if ("'" + Feature + "'" == '95-NO2(ug/m3)-slotA'):
+     F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
     # print("hello")
  
         

@@ -26,7 +26,6 @@ with st.spinner('Updating Report...'):
     Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]
     Selected_Day_gov = AirQualityDataHourly.loc[AirQualityDataHourly['Day'] == Day]
     
-    total_df = pd.merge(Week_data_95, AirQualityDataHourly, how="left", on="Time")
     df = pd.merge(Selected_Day, Selected_Day_gov, how="left", on="Time")
     
     Feature = st.selectbox('Select Pollutant', Feature_List, help = 'Filter report to show only one pollutant')
@@ -63,9 +62,9 @@ with st.spinner('Updating Report...'):
 
     g3, g4= st.columns((100, 1))
     
-    total_df['Difference'] = total_df[F3] - ((total_df[F2] + total_df[F1])/2)
+    df['Difference'] = df[F3] - ((df[F2] + df[F1])/2)
     
-    fig2 = px.bar(total_df, x = 'Time', y='Difference')
+    fig2 = px.bar(df, x = 'Time', y='Difference')
      
     g1.plotly_chart(fig2, use_container_width=True)
  

@@ -39,7 +39,7 @@ with st.spinner('Updating Report...'):
     
     #Selected_Feature = Feature
     
-    if (Feature == Feature_List[1]):
+    if (Feature == Feature_List[0][1]):
      #F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
      print("hello")
  

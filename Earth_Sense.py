@@ -19,7 +19,7 @@ with st.spinner('Updating Report...'):
     Date = pd.read_csv("Day.csv")
     Week_data_95 = pd.read_csv("Week_data_95.csv")
     Feature_List = pd.read_csv("Feature_List.csv")
-    
+    CombinedAirQualityData = pd.read_csv("CombinedAirQualityData.csv")
     AirQualityDataHourly = pd.read_csv("AirQualityDataHourly.csv")
 
     Day = st.selectbox('Select Day', Date, help = 'Filter report to show only one day')
@@ -63,7 +63,7 @@ with st.spinner('Updating Report...'):
     g3, g4= st.columns((100, 1))
     
     #df['Difference'] = ((df[F3] - ((df[F2] + df[F1])/2))/(df[F3] + df[F2] + df[F1])) * 100
-    df['Difference'] = (df[F3] - (df[F2] + df[F1])/2)
+    CombinedAirQualityData['Difference'] = (dfCombinedAirQualityData[F3] - (CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2)
     
     fig2 = px.line(df, x = 'Time', y='Difference')
      

@@ -75,7 +75,7 @@ with st.spinner('Updating Report...'):
      st.dataframe(data=CombinedAirQualityData[F3], use_container_width=True)  
      
 
-    CombinedAirQualityData['Difference'] = (CombinedAirQualityData[F3] - (np.mean(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])))
+    CombinedAirQualityData['Difference'] = (CombinedAirQualityData[F3] - (0.5*(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])))
     
     with g6:
      st.dataframe(data=CombinedAirQualityData['Difference'], use_container_width=True)  

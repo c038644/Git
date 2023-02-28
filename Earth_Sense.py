@@ -32,22 +32,30 @@ with st.spinner('Updating Report...'):
     #Selected_Feature = df.loc[df[Feature] == Feature].any()
 
     g1, g2= st.columns((10, 1))
+
     
-    
-    #if (Feature == 'Nitrogen Dioxide'):
-    "'" + Feature + "'"
-    
-    #Selected_Feature = Feature
-    
-    #if ("'" + Feature + "'" == '95-NO2(ug/m3)-slotA'):
-    if (Feature == '95-NO2(ug/m3)-slotA'):
+    if (Feature == 'Nitric oxide'):
+     F1 = '95-NO(ug/m3)-slotA'
+     F2 = '95-NO(ug/m3)-slotB'
+     F3 = 'Nitric oxide'
+    elif (Feature == 'Nitrogen dioxide'):
      F1 = '95-NO2(ug/m3)-slotA'
      F2 = '95-NO2(ug/m3)-slotB'
      F3 = 'Nitrogen dioxide'
-    # print("hello")
+    elif (Feature == 'Ozone'):
+     F1 = '95-O3(ug/m3)-slotA'
+     F2 = '95-O3(ug/m3)-slotB'
+     F3 = 'Ozone' 
+    elif (Feature == 'PM2.5 particulate matter'):
+     F1 = '95-PM2.5(ug/m3)-slotA'
+     F2 = '95-PM2.5(ug/m3)-slotB'
+     F3 = 'PM2.5 particulate matter (Hourly measured)'
+    elif (Feature == 'PM10 particulate matter'):
+     F1 = '95-PM10(ug/m3)-slotA'
+     F2 = '95-PM10(ug/m3)-slotA'
+     F3 = 'PM10 particulate matter (Hourly measured)'  
+
  
-        
-    #fig = px.line(df, x = 'Time', y=Feature)
     fig = px.line(df, x = 'Time', y=[F1, F2, F3])
      
     g1.plotly_chart(fig, use_container_width=True)

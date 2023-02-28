@@ -63,7 +63,7 @@ with st.spinner('Updating Report...'):
     g3, g4= st.columns((100, 1))
     
     #df['Difference'] = ((df[F3] - ((df[F2] + df[F1])/2))/(df[F3] + df[F2] + df[F1])) * 100
-    df['Difference'] = df[F3] / (df[F2] + df[F1])/2
+    df['Difference'] = (df[F3] / (df[F2] + df[F1])/2) * 100
     
     fig2 = px.line(df, x = 'Time', y='Difference')
      

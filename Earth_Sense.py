@@ -60,9 +60,9 @@ with st.spinner('Updating Report...'):
      
     g1.plotly_chart(fig, use_container_width=True)
 
-    g3, g4= st.columns((100, 1))
+    g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))
     
-    CombinedAirQualityData[F1]
+    g3.CombinedAirQualityData[F1]
     CombinedAirQualityData[F2]
     CombinedAirQualityData[F3]
     

@@ -31,7 +31,7 @@ with st.spinner('Updating Report...'):
     Feature = st.selectbox('Select Pollutant', Feature_List, help = 'Filter report to show only one pollutant')
     #Selected_Feature = df.loc[df[Feature] == Feature].any()
 
-    g1, g2= st.columns((100, 1))
+
 
     
     if (Feature == 'Nitric oxide'):
@@ -54,11 +54,14 @@ with st.spinner('Updating Report...'):
      F1 = '95-PM10(ug/m3)-slotA'
      F2 = '95-PM10(ug/m3)-slotB'
      F3 = 'PM10 particulate matter (Hourly measured)'  
-
+         
+    g0, g10= st.columns((100, 1))
     st.write("Hourly data for slot A and slot B with AURN data")
  
     fig = px.line(df, x = 'Time', y=[F1, F2, F3])
      
+    g1, g2= st.columns((100, 1))
+   
     g1.plotly_chart(fig, use_container_width=True)
 
     g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))

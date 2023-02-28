@@ -29,15 +29,18 @@ with st.spinner('Updating Report...'):
     df = pd.merge(Selected_Day, Selected_Day_gov, how="left", on="Time")
     
     Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
-    Selected_Feature = df.loc[df[Feature] == Feature].any()
+    #Selected_Feature = df.loc[df[Feature] == Feature].any()
 
     g1, g2= st.columns((10, 1))
     
     
-    if (Feature == 'Nitrogen Dioxide'):
-     print("hello")
-     
-    F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
+    #if (Feature == 'Nitrogen Dioxide'):
+    # print("hello")
+    
+    Selected_Feature = Feature
+    
+    if (Selected_Feature == 'Nitrogen Dioxide'):
+     F1, F2, F3 = '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
  
         
     #fig = px.line(df, x = 'Time', y=Feature)

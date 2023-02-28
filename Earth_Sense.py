@@ -43,11 +43,11 @@ with st.spinner('Updating Report...'):
      F1 = '95-O3(ug/m3)-slotA'
      F2 = '95-O3(ug/m3)-slotB'
      F3 = 'Ozone' 
-    elif (Feature == 'PM2.5 particulate matter'):
+    elif (Feature == 'PM2.5 particulate matter (Hourly measured)'):
      F1 = '95-PM2.5(ug/m3)-slotA'
      F2 = '95-PM2.5(ug/m3)-slotB'
      F3 = 'PM2.5 particulate matter (Hourly measured)'
-    elif (Feature == 'PM10 particulate matter'):
+    elif (Feature == 'PM10 particulate matter (Hourly measured)'):
      F1 = '95-PM10(ug/m3)-slotA'
      F2 = '95-PM10(ug/m3)-slotB'
      F3 = 'PM10 particulate matter (Hourly measured)'  

@@ -30,7 +30,6 @@ with st.spinner('Updating Report...'):
     
     Feature = st.selectbox('Select Feature', Feature_List, help = 'Filter report to show only one feature')
     #Selected_Feature = df.loc[df[Feature] == Feature].any()
-    Feature.info()
 
     g1, g2= st.columns((10, 1))
     

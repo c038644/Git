@@ -31,7 +31,7 @@ with st.spinner('Updating Report...'):
     Feature = st.selectbox('Select Pollutant', Feature_List, help = 'Filter report to show only one pollutant')
     #Selected_Feature = df.loc[df[Feature] == Feature].any()
 
-    g1, g2= st.columns((10, 1))
+    g1, g2= st.columns((100, 1))
 
     
     if (Feature == 'Nitric oxide'):
@@ -59,5 +59,13 @@ with st.spinner('Updating Report...'):
     fig = px.line(df, x = 'Time', y=[F1, F2, F3])
      
     g1.plotly_chart(fig, use_container_width=True)
+
+    g3, g4= st.columns((100, 1))
+    
+    df['Difference'] = df[F3] - ((df[F2] + df[F1])/2)
+    
+    fig2 = px.line(df, x = 'Time', y='Difference')
+     
+    g1.plotly_chart(fig2, use_container_width=True)
  
 

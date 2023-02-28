@@ -64,7 +64,7 @@ with st.spinner('Updating Report...'):
     
     df['Difference'] = df[F3] - ((df[F2] + df[F1])/2)
     
-    fig2 = px.bar(df, x = 'Time', y='Difference')
+    fig2 = px.line(df, x = 'Time', y='Difference')
      
     g1.plotly_chart(fig2, use_container_width=True)
  

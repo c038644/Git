@@ -35,7 +35,7 @@ with st.spinner('Updating Report...'):
     
     
     #if (Feature == 'Nitrogen Dioxide'):
-    print("'" + Feature + "'")
+    "'" + Feature + "'"
     
     #Selected_Feature = Feature
     

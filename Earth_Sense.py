@@ -22,13 +22,13 @@ with st.spinner('Updating Report...'):
     
     AirQualityDataHourly = pd.read_csv("AirQualityDataHourly.csv")
 
-    Day = st.selectbox('Select Day', Date, help = 'Filter report to show only one customer')
+    Day = st.selectbox('Select Day', Date, help = 'Filter report to show only one day')
     Selected_Day = Week_data_95.loc[Week_data_95['Day'] == Day]
     Selected_Day_gov = AirQualityDataHourly.loc[AirQualityDataHourly['Day'] == Day]
     
     df = pd.merge(Selected_Day, Selected_Day_gov, how="left", on="Time")
     
-    Feature = st.selectbox('Select Pollutant', Feature_List, help = 'Filter report to show only one feature')
+    Feature = st.selectbox('Select Pollutant', Feature_List, help = 'Filter report to show only one pollutant')
     #Selected_Feature = df.loc[df[Feature] == Feature].any()
 
     g1, g2= st.columns((10, 1))

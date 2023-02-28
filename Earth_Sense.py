@@ -34,11 +34,11 @@ with st.spinner('Updating Report...'):
     g1, g2= st.columns((10, 1))
     
     if Feature == 'Nitrogen Dioxide':
-     Features == '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
+     F1, F2, F3 == '95-NO2(ug/m3)-slotA', '95-NO2(ug/m3)-slotB', 'Nitrogen dioxide'
     
       
     #fig = px.line(df, x = 'Time', y=Feature)
-    fig = px.line(df, x = 'Time', y=[Features])
+    fig = px.line(df, x = 'Time', y=[F1, F2, F3])
      
     g1.plotly_chart(fig, use_container_width=True)
  

@@ -62,6 +62,10 @@ with st.spinner('Updating Report...'):
 
     g3, g4= st.columns((100, 1))
     
+    CombinedAirQualityData[F1]
+    CombinedAirQualityData[F2]
+    CombinedAirQualityData[F3]
+    
     #df['Difference'] = ((df[F3] - ((df[F2] + df[F1])/2))/(df[F3] + df[F2] + df[F1])) * 100
     CombinedAirQualityData['Difference'] = (CombinedAirQualityData[F3] - (CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2)
     CombinedAirQualityData['Difference']

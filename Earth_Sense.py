@@ -71,6 +71,8 @@ with st.spinner('Updating Report...'):
     CombinedAirQualityData['Difference']
     CombinedAirQualityData['Percentage'] = (CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2 / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])
     CombinedAirQualityData['Percentage']
+    sum(CombinedAirQualityData['Difference'])
+    sum(CombinedAirQualityData['Percentage'])
     
     #fig2 = px.line(CombinedAirQualityData, x = 'Time', y='Difference')
      

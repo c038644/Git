@@ -64,15 +64,23 @@ with st.spinner('Updating Report...'):
     
     with g3:
      st.dataframe(data=CombinedAirQualityData[F1], use_container_width=True)
+    with g4:
+     st.dataframe(data=CombinedAirQualityData[F2], use_container_width=True) 
+    with g5:
+     st.dataframe(data=CombinedAirQualityData[F3], use_container_width=True)  
      
-    CombinedAirQualityData[F2]
-    CombinedAirQualityData[F3]
-    
-    #df['Difference'] = ((df[F3] - ((df[F2] + df[F1])/2))/(df[F3] + df[F2] + df[F1])) * 100
+
     CombinedAirQualityData['Difference'] = (CombinedAirQualityData[F3] - (CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2)
-    CombinedAirQualityData['Difference']
+    
+    with g6:
+     st.dataframe(data=CombinedAirQualityData['Difference'], use_container_width=True)  
+    
     CombinedAirQualityData['Percentage'] = (CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2 / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])
-    CombinedAirQualityData['Percentage']
+
+    with g7:
+     st.dataframe(data=CombinedAirQualityData['Percentage'], use_container_width=True)
+    
+    with g8:
     st.write(sum(CombinedAirQualityData['Difference']))
     st.write(sum(CombinedAirQualityData['Difference'])/168)
     st.write((sum(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])/2 / sum(CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1]))*100)

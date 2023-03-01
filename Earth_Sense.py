@@ -72,7 +72,7 @@ with st.spinner('Updating Report...'):
      
     g11.plotly_chart(fig2, use_container_width=True)  
     
-    g6, g7, g8= st.columns((2, 2, 1))
+    g6, g8= st.columns((6, 1))
     
     #with g3:
     # st.dataframe(data=CombinedAirQualityData[F1], use_container_width=True)
@@ -82,9 +82,9 @@ with st.spinner('Updating Report...'):
     # st.dataframe(data=CombinedAirQualityData[F3], use_container_width=True)  
      
     with g6:
-     st.dataframe(data=CombinedAirQualityData[['Day', 'Time', 'Difference']], use_container_width=True)  
-    with g7:
-     st.dataframe(data=CombinedAirQualityData[['Day', 'Time', 'Percentage']], use_container_width=True)
+     st.dataframe(data=CombinedAirQualityData[['Day', 'Time', 'Difference', 'Percentage']], use_container_width=True)  
+    #with g7:
+    # st.dataframe(data=CombinedAirQualityData[['Day', 'Time', 'Percentage']], use_container_width=True)
     
     with g8:
      st.write("Total difference") 

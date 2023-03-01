@@ -65,12 +65,12 @@ with st.spinner('Updating Report...'):
     
     g11, g21= st.columns((100, 1))
     
+    CombinedAirQualityData['Difference'] = (CombinedAirQualityData[F3] - (0.5*(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])))
+    CombinedAirQualityData['Percentage'] = 100*(CombinedAirQualityData['Difference']) / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])
+    
     fig2 = px.bar(CombinedAirQualityData, x = 'Day', y='Difference')
      
     g11.plotly_chart(fig2, use_container_width=True)  
-    
-    CombinedAirQualityData['Difference'] = (CombinedAirQualityData[F3] - (0.5*(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])))
-    CombinedAirQualityData['Percentage'] = 100*(CombinedAirQualityData['Difference']) / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])
     
     g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))
     

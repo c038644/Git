@@ -66,7 +66,7 @@ with st.spinner('Updating Report...'):
     g11, g21= st.columns((100, 1))
     
     CombinedAirQualityData['Difference'] = (CombinedAirQualityData[F3] - (0.5*(CombinedAirQualityData[F2] + CombinedAirQualityData[F1])))
-    CombinedAirQualityData['Percentage'] = 100*(CombinedAirQualityData['Difference']) / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1])
+    CombinedAirQualityData['Percentage'] = 100*(1-(CombinedAirQualityData['Difference']) / (CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1]))
     
     fig2 = px.bar(CombinedAirQualityData, x = 'Day', y='Difference')
      

@@ -87,13 +87,12 @@ with st.spinner('Updating Report...'):
     # st.dataframe(data=CombinedAirQualityData[['Day', 'Time', 'Percentage']], use_container_width=True)
     
     with g8:
-     st.write(sum(CombinedAirQualityData['Percentage']))
      st.write("Total difference") 
      st.write(sum(CombinedAirQualityData['Difference']))
      st.write("Average difference") 
      st.write(sum(CombinedAirQualityData['Difference'])/168)
-     st.write("Percentage difference")
-     st.write((sum(CombinedAirQualityData['Difference']) / sum(0.5*(CombinedAirQualityData[F1] + CombinedAirQualityData[F2]) + CombinedAirQualityData[F3]))*100)
+     st.write("Average Percentage difference")
+     st.write(sum(CombinedAirQualityData['Percentage'])/168)
      
 
     

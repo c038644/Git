@@ -82,7 +82,7 @@ with st.spinner('Updating Report...'):
      st.dataframe(data=CombinedAirQualityData[F3], use_container_width=True)  
      
     with g6:
-     st.dataframe(data=CombinedAirQualityData[['Day'], ['Difference']], use_container_width=True)  
+     st.dataframe(data=CombinedAirQualityData[['Day', 'Difference']], use_container_width=True)  
     with g7:
      st.dataframe(data=CombinedAirQualityData['Percentage'], use_container_width=True)
     

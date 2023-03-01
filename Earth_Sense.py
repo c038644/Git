@@ -92,7 +92,7 @@ with st.spinner('Updating Report...'):
      st.write("Average difference") 
      st.write(sum(CombinedAirQualityData['Difference'])/168)
      st.write("Percentage difference")
-     st.write((sum(CombinedAirQualityData['Difference']) / sum((0.5*(CombinedAirQualityData[F1] + CombinedAirQualityData[F2]) + CombinedAirQualityData[F3]))*100)
+     st.write((sum(CombinedAirQualityData['Difference']) / sum(0.5*(CombinedAirQualityData[F1] + CombinedAirQualityData[F2]) + CombinedAirQualityData[F3]))*100)
      
 
     

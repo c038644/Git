@@ -61,11 +61,11 @@ with st.spinner('Updating Report...'):
    
     g1.plotly_chart(fig, use_container_width=True)
     
-    st.write("Weekly data for the average of slot A and slot B with AURN data") 
 
-    g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))
     
-
+    st.write("Weekly data for the average of slot A and slot B with AURN data") 
+    
+    g3, g4, g5, g6, g7, g8= st.columns((1, 1, 1, 1, 1, 1))
     
     with g3:
      st.dataframe(data=CombinedAirQualityData[F1], use_container_width=True)
@@ -92,10 +92,14 @@ with st.spinner('Updating Report...'):
      st.write(sum(CombinedAirQualityData['Difference'])/168)
      st.write("Percentage difference")
      st.write((sum(CombinedAirQualityData['Difference']) / sum(CombinedAirQualityData[F3] + CombinedAirQualityData[F2] + CombinedAirQualityData[F1]))*100)
-    
-    
-    #fig2 = px.line(CombinedAirQualityData, x = 'Time', y='Difference')
      
-    #g3.plotly_chart(fig2, use_container_width=True)
+    g11, g21= st.columns((100, 1))
+    
+    fig2 = px.bar(CombinedAirQualityData, x = 'Day', y='Difference')
+     
+    g11.plotly_chart(fig2, use_container_width=True)  
+    
+    
+
  
 

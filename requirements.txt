@@ -1,9 +1,9 @@
 streamlit 
 pandas 
 plotly
-#requests
+requests
 numpy
-#unicorn
-#sklearn
-#flask
-#imblearn
+unicorn
+sklearn
+flask
+imblearn

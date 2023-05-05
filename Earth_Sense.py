@@ -12,8 +12,8 @@ st.set_page_config(page_title='Air Quality Analysis',  layout='wide', page_icon=
  
 t1, t2 = st.columns((0.07,1)) 
 
-t2.title("Air Quality Analysis")
-t2.markdown("with Zephyr and AURN Data")
+t2.title("Pokemon Game")
+t2.markdown("Version 1.0")
 
 
 import requests
@@ -58,7 +58,7 @@ def get_pokemon_attributes(pokemon_name):
         print(f"Error: Failed to retrieve data for {pokemon_name}")
         return None    
 
-print("Welcome to the Pokemon game!")
+st.write("Welcome to the Pokemon game!")
 game_mode = input("Enter '1' for single player or '2' for two player: ")
 
 if game_mode == '1':

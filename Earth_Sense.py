@@ -112,22 +112,22 @@ elif game_mode == '2':
     if player1_name:    
 
     # Make a GET request to the PokeAPI to retrieve information about the Kanto Pokedex
-    response = requests.get('https://pokeapi.co/api/v2/pokedex/kanto')
+        response = requests.get('https://pokeapi.co/api/v2/pokedex/kanto')
 
     # Parse the JSON response into a Python dictionary
-    pokedex = response.json()
+        pokedex = response.json()
 
     # Retrieve the list of Pokemon in the Kanto Pokedex
-    kanto_pokemon = pokedex['pokemon_entries']
+        kanto_pokemon = pokedex['pokemon_entries']
 
     # Randomly select 20 Pokemon from the Kanto Pokedex
-    selected_pokemon = random.sample(kanto_pokemon, 20)
+        selected_pokemon = random.sample(kanto_pokemon, 20)
 
     # Print information about the selected Pokemon
-    st.write("Here are 20 random Pokemon from the Kanto Pokedex:")
-    for pokemon in selected_pokemon:
-        pokemon_name, pokemon_type, pokemon_ability = get_pokemon_details(pokemon)
-        st.write(f"{pokemon_name:<15} (Type: {pokemon_type:<10}, Ability: {pokemon_ability:<20})")
+        st.write("Here are 20 random Pokemon from the Kanto Pokedex:")
+        for pokemon in selected_pokemon:
+            pokemon_name, pokemon_type, pokemon_ability = get_pokemon_details(pokemon)
+            st.write(f"{pokemon_name:<15} (Type: {pokemon_type:<10}, Ability: {pokemon_ability:<20})")
 
     # Prompt player 1 to select a Pokemon
     while True:

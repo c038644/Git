@@ -254,5 +254,5 @@ elif game_mode == '2':
             print(f"{second_player.upper()} wins!")
         else:
             print("It's a tie!")
-        else:
-            print("Invalid Pokemon choice for one or both players. Please try again.")
+    else:
+        print("Invalid Pokemon choice for one or both players. Please try again.")

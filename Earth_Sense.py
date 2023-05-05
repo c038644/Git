@@ -137,9 +137,9 @@ elif game_mode == '2':
     # Find the selected Pokemon in the list of randomly selected Pokemon
         selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
         st.write("Player 1, choose 1 and begin your journey!")
-        pokemon_choice = st.selectbox('Select Pokemon', selected_pokemon)
+        player1_choice = st.selectbox('Select Pokemon', selected_pokemon)
         
-        if pokemon_choice:        
+        if player1_choice:        
         #    if player1_choice not in selected_pokemon_names:
         #        print("Invalid choice. Please try again.")
         #        continue
@@ -147,9 +147,9 @@ elif game_mode == '2':
     # Prompt player 2 to select a Pokemon
 
             st.write("Player 2, choose 1 and begin your journey!")
-            pokemon_choice = st.selectbox('Select Pokemon', selected_pokemon)
+            player2_choice = st.selectbox('Select Pokemon', selected_pokemon)
 
-            if pokemon_choice:
+            if player2_choice:
 
     # Find the selected Pokemon in the list of randomly selected Pokemon
                    # if player2_choice not in selected_pokemon_names or player2_choice == player1_choice:

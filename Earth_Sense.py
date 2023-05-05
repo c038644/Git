@@ -152,20 +152,23 @@ elif game_mode == '2':
             if pokemon_choice:
 
     # Find the selected Pokemon in the list of randomly selected Pokemon
-                    if player2_choice not in selected_pokemon_names or player2_choice == player1_choice:
-                        print("Invalid choice. Please try again.")
-                        continue
+                   # if player2_choice not in selected_pokemon_names or player2_choice == player1_choice:
+                    #    print("Invalid choice. Please try again.")
+                    #    continue
 
     # Game starting
-        print("\nGame starting...")
-        print(f"{player1_name} has chosen {player1_choice}.")
-        print(f"{player2_name} has chosen {player2_choice}.")
-        print("Let the battle begin!")
+                st.write("\nGame starting...")
+                st.write("Player 1has chosen :")
+                st.write(player1_choice)
+                st.write(" Player 2 has chosen :)
+                st.write(player2_choice)
+                st.write("Let the battle begin!")
     # Code for the battle between player 1's and player 2's Pokemon
     # ...
-        break
+                break
 # Find the selected Pokemon in the list of randomly selected Pokemon
-selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
+            selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
+
 
 if player1_choice in selected_pokemon_names:
     attributes = get_pokemon_attributes(player1_choice)

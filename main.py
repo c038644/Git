@@ -7,6 +7,16 @@ import time
 import random
 import streamlit as st
 
+#this is the header
+ 
+t1, t2 = st.columns((0.07,1)) 
+
+t2.title("Pokemon Game")
+t2.markdown("version 1.0")
+
+print("Welcome to the Pokemon game!")
+game_mode = input("Enter '1' for single player or '2' for two player: ")
+
 def get_pokemon_details(pokemon):
     """Retrieves details about a Pokemon from the PokeAPI."""
     pokemon_data = requests.get(pokemon['pokemon_species']['url']).json()
@@ -46,15 +56,7 @@ def get_pokemon_attributes(pokemon_name):
         print(f"Error: Failed to retrieve data for {pokemon_name}")
         return None    
 
-#this is the header
- 
-t1, t2 = st.columns((0.07,1)) 
 
-t2.title("Pokemon Game")
-t2.markdown("version 1.0")
-
-print("Welcome to the Pokemon game!")
-game_mode = input("Enter '1' for single player or '2' for two player: ")
 
 if game_mode == '1':
     # Single player version of the game

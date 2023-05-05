@@ -78,6 +78,7 @@ if game_mode == '1':
 
     # Randomly select 20 Pokemon from the Kanto Pokedex
     selected_pokemon = random.sample(kanto_pokemon, 20)
+    selected_pokemon.append('None')
 
     # Print information about the selected Pokemon
     #st.write("Here are 20 random Pokemon from the Kanto Pokedex:")

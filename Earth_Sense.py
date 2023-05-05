@@ -159,8 +159,7 @@ elif game_mode == '2':
         selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
 
 
-
-if player1_choice in selected_pokemon_names:
+    if player1_choice in selected_pokemon_names:
     attributes = get_pokemon_attributes(player1_choice)
     if attributes:
         moves = get_pokemon_moves(player1_choice)
@@ -172,7 +171,7 @@ if player1_choice in selected_pokemon_names:
     else:
         print(f"Error: Failed to retrieve attributes for {player1_choice}. Please try again.")
 
-if player2_choice in selected_pokemon_names:
+    if player2_choice in selected_pokemon_names:
     attributes = get_pokemon_attributes(player2_choice)
     if attributes:
         moves = get_pokemon_moves(player2_choice)
@@ -185,10 +184,10 @@ if player2_choice in selected_pokemon_names:
         print(f"Error: Failed to retrieve attributes for {player2_choice}. Please try again.")
 
 
-# Find the selected Pokemon in the list of randomly selected Pokemon
-selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
+    # Find the selected Pokemon in the list of randomly selected Pokemon
+    selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
 
-if player1_choice in selected_pokemon_names and player2_choice in selected_pokemon_names:
+    if player1_choice in selected_pokemon_names and player2_choice in selected_pokemon_names:
     player1_stats = get_pokemon_attributes(player1_choice)
     player2_stats = get_pokemon_attributes(player2_choice)
 
@@ -256,12 +255,5 @@ if player1_choice in selected_pokemon_names and player2_choice in selected_pokem
         print(f"{second_player.upper()} wins!")
     else:
         print("It's a tie!")
-else:
-    print("Invalid Pokemon choice for one or both players. Please try again.")
-     
-
-    
-    
-
- 
-
+    else:
+        print("Invalid Pokemon choice for one or both players. Please try again.")

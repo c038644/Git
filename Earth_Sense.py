@@ -78,8 +78,7 @@ if game_mode == '1':
 
     # Randomly select 20 Pokemon from the Kanto Pokedex
     selected_pokemon = random.sample(kanto_pokemon, 20)
-    selected_pokemon.append('None')
-
+    
     # Print information about the selected Pokemon
     #st.write("Here are 20 random Pokemon from the Kanto Pokedex:")
     for pokemon in selected_pokemon:
@@ -90,6 +89,7 @@ if game_mode == '1':
     while True:
         st.write("\nChoose 1 and begin your journey!")
         st.write("Enter the name of the Pokemon you want to choose:")
+        selected_pokemon.append('None')
         pokemon_choice = st.selectbox('Select Pokemon', options=selected_pokemon, default=None)
         
         if pokemon_choice:

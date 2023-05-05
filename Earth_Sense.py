@@ -117,10 +117,10 @@ elif game_mode == '2':
     selected_pokemon = random.sample(kanto_pokemon, 20)
 
     # Print information about the selected Pokemon
-    print("Here are 20 random Pokemon from the Kanto Pokedex:")
+    st.write("Here are 20 random Pokemon from the Kanto Pokedex:")
     for pokemon in selected_pokemon:
         pokemon_name, pokemon_type, pokemon_ability = get_pokemon_details(pokemon)
-        print(f"{pokemon_name:<15} (Type: {pokemon_type:<10}, Ability: {pokemon_ability:<20})")
+        st.write(f"{pokemon_name:<15} (Type: {pokemon_type:<10}, Ability: {pokemon_ability:<20})")
 
     # Prompt player 1 to select a Pokemon
     while True:
@@ -151,7 +151,7 @@ elif game_mode == '2':
     # ...
         break
 # Find the selected Pokemon in the list of randomly selected Pokemon
-selected_pokemon_names = st.selectbox[get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
+selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
 
 if player1_choice in selected_pokemon_names:
     attributes = get_pokemon_attributes(player1_choice)

@@ -7,7 +7,7 @@ import time
 import random
 import json
 
-st.set_page_config(page_title='Air Quality Analysis',  layout='wide', page_icon=':Calculator:')
+st.set_page_config(page_title='Pokemon Game',  layout='wide', page_icon=':Calculator:')
 
 #this is the header
  
@@ -89,8 +89,8 @@ if game_mode == '1':
     while True:
         st.write("\nChoose 1 and begin your journey!")
         st.write("Enter the name of the Pokemon you want to choose:")
-        selected_pokemon.append('None')
-        pokemon_choice = st.selectbox('Select Pokemon', options=selected_pokemon, default=None)
+        #selected_pokemon.append('None')
+        pokemon_choice = st.selectbox('Select Pokemon', options=selected_pokemon)#, default=None)
         
         if pokemon_choice:
            st.write("\nGame starting...")
@@ -136,13 +136,13 @@ elif game_mode == '2':
     # Find the selected Pokemon in the list of randomly selected Pokemon
         selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
         st.write("Player 1, choose 1 and begin your journey!")
-        player1_choice = st.selectbox('Select Pokemon', options=selected_pokemon, default=None)
+        player1_choice = st.selectbox('Select Pokemon', options=selected_pokemon)#, default=None)
         
         if player1_choice:        
     # Prompt player 2 to select a Pokemon
 
             st.write("Player 2, choose 1 and begin your journey!")
-            player2_choice = st.selectbox('Select Pokemon', options=selected_pokemon, default=None)
+            player2_choice = st.selectbox('Select Pokemon', options=selected_pokemon)#, default=None)
 
             if player2_choice:
     # Game starting

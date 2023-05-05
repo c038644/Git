@@ -91,7 +91,7 @@ if game_mode == '1':
         st.write("Enter the name of the Pokemon you want to choose:")
         pokemon_choice = st.selectbox('Select Pokemon', selected_pokemon)
         
-        if game_mode:
+        if pokemon_choice:
 
            # Find the selected Pokemon in the list of randomly selected Pokemon
            selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
@@ -106,8 +106,10 @@ elif game_mode == '2':
     # Two player version of the game
 
     # Get the names of the players
-    player1_name = input("Enter the name of player 1: ")
-    player2_name = input("Enter the name of player 2: ")
+    player1_name = st.text_input("Enter the name of player 1: ")
+    if player1_name:
+        player2_name = st.text_input("Enter the name of player 2: ")
+    if player1_name:    
 
     # Make a GET request to the PokeAPI to retrieve information about the Kanto Pokedex
     response = requests.get('https://pokeapi.co/api/v2/pokedex/kanto')
@@ -129,23 +131,29 @@ elif game_mode == '2':
 
     # Prompt player 1 to select a Pokemon
     while True:
-        print(f"\n{player1_name}, choose 1 and begin your journey!")
-        player1_choice = input("Enter the name of the Pokemon you want to choose: ")
+
 
     # Find the selected Pokemon in the list of randomly selected Pokemon
         selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
-        if player1_choice not in selected_pokemon_names:
-            print("Invalid choice. Please try again.")
-            continue
+        st.write("Player 1, choose 1 and begin your journey!")
+        pokemon_choice = st.selectbox('Select Pokemon', selected_pokemon)
+        
+        if pokemon_choice:        
+            if player1_choice not in selected_pokemon_names:
+                print("Invalid choice. Please try again.")
+                continue
 
     # Prompt player 2 to select a Pokemon
-        print(f"\n{player2_name}, choose 1 and begin your journey!")
-        player2_choice = input("Enter the name of the Pokemon you want to choose: ")
+
+            st.write("Player 2, choose 1 and begin your journey!")
+            pokemon_choice = st.selectbox('Select Pokemon', selected_pokemon)
+
+            if pokemon_choice:
 
     # Find the selected Pokemon in the list of randomly selected Pokemon
-        if player2_choice not in selected_pokemon_names or player2_choice == player1_choice:
-            print("Invalid choice. Please try again.")
-            continue
+                    if player2_choice not in selected_pokemon_names or player2_choice == player1_choice:
+                        print("Invalid choice. Please try again.")
+                        continue
 
     # Game starting
         print("\nGame starting...")
@@ -255,7 +263,7 @@ if player1_choice in selected_pokemon_names and player2_choice in selected_pokem
     else:
         print("It's a tie!")
 else:
-    print("Invalid Pokemon choice for one or both players. Please try again.") 
+    print("Invalid Pokemon choice for one or both players. Please try again.")
      
 
     

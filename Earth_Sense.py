@@ -160,7 +160,7 @@ elif game_mode == '2':
                 st.write("\nGame starting...")
                 st.write("Player 1has chosen :")
                 st.write(player1_choice)
-                st.write(" Player 2 has chosen :)
+                st.write(" Player 2 has chosen :")
                 st.write(player2_choice)
                 st.write("Let the battle begin!")
     # Code for the battle between player 1's and player 2's Pokemon

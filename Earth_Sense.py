@@ -60,10 +60,9 @@ def get_pokemon_attributes(pokemon_name):
         return None    
 
 st.write("Welcome to the Pokemon game!")
-game_mode = None
-while game_mode not in ['1', '2']:
-    game_mode = st.text_input("Enter '1' for single player or '2' for two player: ")
-st.write("You selected game mode:", game_mode)
+game_mode = st.text_input("Enter '1' for single player or '2' for two player: ")
+if game_mode:
+    st.write("You selected game mode:", game_mode)
 
 if game_mode == '1':
     # Single player version of the game

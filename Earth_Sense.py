@@ -80,7 +80,7 @@ if game_mode == '1':
     selected_pokemon = random.sample(kanto_pokemon, 20)
 
     # Print information about the selected Pokemon
-    st.write("Here are 20 random Pokemon from the Kanto Pokedex:")
+    #st.write("Here are 20 random Pokemon from the Kanto Pokedex:")
     for pokemon in selected_pokemon:
         pokemon_name, pokemon_type, pokemon_ability = get_pokemon_details(pokemon)
         #st.write(f"{pokemon_name:<15} (Type: {pokemon_type:<10}, Ability: {pokemon_ability:<20})")
@@ -96,7 +96,8 @@ if game_mode == '1':
            # Find the selected Pokemon in the list of randomly selected Pokemon
            selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
            if pokemon_choice in selected_pokemon_names:
-               st.write(f"You have chosen {pokemon_choice}. Let us begin!")
+               st.write(f"You have chosen: ")
+               st.write(pokemon_choice)
                break
            else:
                st.write("Invalid choice. Please try again.")

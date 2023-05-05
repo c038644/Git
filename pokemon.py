@@ -4,6 +4,8 @@ import time
 import random
 import streamlit as st
 
+st.set_page_config(page_title='Air Quality Analysis',  layout='wide', page_icon=':Calculator:')
+
 #this is the header
  
 t1, t2 = st.columns((0.07,1)) 

@@ -92,16 +92,15 @@ if game_mode == '1':
         pokemon_choice = st.selectbox('Select Pokemon', selected_pokemon)
         
         if pokemon_choice:
-
-           # Find the selected Pokemon in the list of randomly selected Pokemon
-           selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
-           if pokemon_choice in selected_pokemon_names:
-               st.write(f"You have chosen: ")
-               st.write(pokemon_choice)
-               break
-           else:
-               st.write("Invalid choice. Please try again.")
-        st.write("\nGame starting...")
+#           # Find the selected Pokemon in the list of randomly selected Pokemon
+#           selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
+#           if pokemon_choice in selected_pokemon_names:
+#               st.write(f"You have chosen: ")
+#               st.write(pokemon_choice)
+#               break
+#           else:
+#               st.write("Invalid choice. Please try again.")
+            st.write("\nGame starting...")
 
 elif game_mode == '2':
     # Two player version of the game

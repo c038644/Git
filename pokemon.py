@@ -1,7 +1,6 @@
-import requests
-import random
-import time
-import random
+# import requests
+# import random
+# import time
 import streamlit as st
 
 st.set_page_config(page_title='Air Quality Analysis',  layout='wide', page_icon=':Calculator:')

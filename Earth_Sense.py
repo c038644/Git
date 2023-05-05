@@ -155,7 +155,7 @@ elif game_mode == '2':
     # ...
                 break
 # Find the selected Pokemon in the list of randomly selected Pokemon
-            selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
+        selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
 
 
 

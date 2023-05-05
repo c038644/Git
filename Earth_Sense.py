@@ -158,102 +158,101 @@ elif game_mode == '2':
 # Find the selected Pokemon in the list of randomly selected Pokemon
         selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
 
-
     if player1_choice in selected_pokemon_names:
-    attributes = get_pokemon_attributes(player1_choice)
-    if attributes:
-        moves = get_pokemon_moves(player1_choice)
-        print("\n" + "-"*40)
-        print(f"{player1_choice.upper()} BASE STATS:")
-        for stat_name, stat_value in attributes.items():
-            print(f"{stat_name.capitalize()}: {stat_value}")
-        print("-"*40)
-    else:
-        print(f"Error: Failed to retrieve attributes for {player1_choice}. Please try again.")
+        attributes = get_pokemon_attributes(player1_choice)
+        if attributes:
+            moves = get_pokemon_moves(player1_choice)
+            print("\n" + "-"*40)
+            print(f"{player1_choice.upper()} BASE STATS:")
+            for stat_name, stat_value in attributes.items():
+                print(f"{stat_name.capitalize()}: {stat_value}")
+            print("-"*40)
+        else:
+            print(f"Error: Failed to retrieve attributes for {player1_choice}. Please try again.")
 
     if player2_choice in selected_pokemon_names:
-    attributes = get_pokemon_attributes(player2_choice)
-    if attributes:
-        moves = get_pokemon_moves(player2_choice)
-        print("\n" + "-"*40)
-        print(f"{player2_choice.upper()} BASE STATS:")
-        for stat_name, stat_value in attributes.items():
-            print(f"{stat_name.capitalize()}: {stat_value}")
-        print("-"*40)
-    else:
-        print(f"Error: Failed to retrieve attributes for {player2_choice}. Please try again.")
+        attributes = get_pokemon_attributes(player2_choice)
+        if attributes:
+            moves = get_pokemon_moves(player2_choice)
+            print("\n" + "-"*40)
+            print(f"{player2_choice.upper()} BASE STATS:")
+            for stat_name, stat_value in attributes.items():
+                print(f"{stat_name.capitalize()}: {stat_value}")
+            print("-"*40)
+        else:
+            print(f"Error: Failed to retrieve attributes for {player2_choice}. Please try again.")
 
 
     # Find the selected Pokemon in the list of randomly selected Pokemon
     selected_pokemon_names = [get_pokemon_details(pokemon)[0] for pokemon in selected_pokemon]
 
     if player1_choice in selected_pokemon_names and player2_choice in selected_pokemon_names:
-    player1_stats = get_pokemon_attributes(player1_choice)
-    player2_stats = get_pokemon_attributes(player2_choice)
+        player1_stats = get_pokemon_attributes(player1_choice)
+        player2_stats = get_pokemon_attributes(player2_choice)
 
     # Compare the total base stats of each player's selected Pokemon
-    player1_total_stats = sum(player1_stats.values())
-    player2_total_stats = sum(player2_stats.values())
+        player1_total_stats = sum(player1_stats.values())
+        player2_total_stats = sum(player2_stats.values())
 
-    print(f"Player 1: {player1_choice.upper()}")
-    for stat_name, stat_value in player1_stats.items():
-        print(f"{stat_name.capitalize()}: {stat_value}")
-    print(f"Total base stats: {player1_total_stats}\n")
+        print(f"Player 1: {player1_choice.upper()}")
+        for stat_name, stat_value in player1_stats.items():
+            print(f"{stat_name.capitalize()}: {stat_value}")
+        print(f"Total base stats: {player1_total_stats}\n")
 
-    print(f"Player 2: {player2_choice.upper()}")
-    for stat_name, stat_value in player2_stats.items():
-        print(f"{stat_name.capitalize()}: {stat_value}")
-    print(f"Total base stats: {player2_total_stats}\n")
+        print(f"Player 2: {player2_choice.upper()}")
+        for stat_name, stat_value in player2_stats.items():
+            print(f"{stat_name.capitalize()}: {stat_value}")
+        print(f"Total base stats: {player2_total_stats}\n")
 
-    print("Let the battle begin!\n")
-    time.sleep(1)
+        print("Let the battle begin!\n")
+        time.sleep(1)
 
     # Determine which player attacks first
-    players = [(player1_choice, player1_total_stats), (player2_choice, player2_total_stats)]
-    random.shuffle(players)
-    first_player = players[0][0]
-    second_player = players[1][0]
+        players = [(player1_choice, player1_total_stats), (player2_choice, player2_total_stats)]
+        random.shuffle(players)
+        first_player = players[0][0]
+        second_player = players[1][0]
 
-    print(f"{first_player.upper()} attacks first!\n")
-    time.sleep(1)
+        print(f"{first_player.upper()} attacks first!\n")
+        time.sleep(1)
 
-    while player1_total_stats > 0 and player2_total_stats > 0:
+        while player1_total_stats > 0 and player2_total_stats > 0:
         # Determine the attack strength of each player
-        player1_attack = random.randint(1, player1_total_stats)
-        player2_attack = random.randint(1, player2_total_stats)
+            player1_attack = random.randint(1, player1_total_stats)
+            player2_attack = random.randint(1, player2_total_stats)
 
         # Reduce the total base stats of the player that attacks
-        if first_player == player1_choice:
-            player2_total_stats -= player1_attack
-            print(f"{first_player.upper()} attacks with {player1_attack} strength!")
-            time.sleep(1)
-            if player2_total_stats <= 0:
-                break
-            player1_total_stats -= player2_attack
-            print(f"{second_player.upper()} counterattacks with {player2_attack} strength!")
-            time.sleep(1)
-            if player1_total_stats <= 0:
-                break
+            if first_player == player1_choice:
+                player2_total_stats -= player1_attack
+                print(f"{first_player.upper()} attacks with {player1_attack} strength!")
+                time.sleep(1)
+                if player2_total_stats <= 0:
+                    break
+                player1_total_stats -= player2_attack
+                print(f"{second_player.upper()} counterattacks with {player2_attack} strength!")
+                time.sleep(1)
+                if player1_total_stats <= 0:
+                    break
+            else:
+                player1_total_stats -= player2_attack
+                print(f"{first_player.upper()} attacks with {player2_attack} strength!")
+                time.sleep(1)
+                if player1_total_stats <= 0:
+                    break
+                player2_total_stats -= player1_attack
+                print(f"{second_player.upper()} counterattacks with {player1_attack} strength!")
+                time.sleep(1)
+                if player2_total_stats <= 0:
+                    break
+
+        print("\nThe battle is over!\n")
+        time.sleep(1)
+
+        if player1_total_stats > player2_total_stats:
+            print(f"{first_player.upper()} wins!")
+        elif player2_total_stats > player1_total_stats:
+            print(f"{second_player.upper()} wins!")
         else:
-            player1_total_stats -= player2_attack
-            print(f"{first_player.upper()} attacks with {player2_attack} strength!")
-            time.sleep(1)
-            if player1_total_stats <= 0:
-                break
-            player2_total_stats -= player1_attack
-            print(f"{second_player.upper()} counterattacks with {player1_attack} strength!")
-            time.sleep(1)
-            if player2_total_stats <= 0:
-                break
-
-    print("\nThe battle is over!\n")
-    time.sleep(1)
-
-    if player1_total_stats > player2_total_stats:
-        print(f"{first_player.upper()} wins!")
-    elif player2_total_stats > player1_total_stats:
-        print(f"{second_player.upper()} wins!")
-    else:
-        print("It's a tie!")
-    else:
-        print("Invalid Pokemon choice for one or both players. Please try again.")
+            print("It's a tie!")
+        else:
+            print("Invalid Pokemon choice for one or both players. Please try again.")

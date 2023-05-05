@@ -140,9 +140,9 @@ elif game_mode == '2':
         pokemon_choice = st.selectbox('Select Pokemon', selected_pokemon)
         
         if pokemon_choice:        
-            if player1_choice not in selected_pokemon_names:
-                print("Invalid choice. Please try again.")
-                continue
+        #    if player1_choice not in selected_pokemon_names:
+        #        print("Invalid choice. Please try again.")
+        #        continue
 
     # Prompt player 2 to select a Pokemon
 

@@ -3,5 +3,5 @@ pandas
 numpy
 plotly
 requests
-sklearn
+scikit-learn
 imblearn
